@@ -4,10 +4,7 @@
 /* navbar elements */
 
 .topLayer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+   height: 158.44px;
 }
 .navBody{
     display: flex;
@@ -82,6 +79,7 @@
     position: relative;
     font-family: 'Permanent Marker', 'cursive';
     font-size: 2rem;
+    color: rgb(29, 27, 27);
 }
 
 #topE1{
@@ -126,12 +124,14 @@
     align-content: left;
     background-color: rgb(29, 27, 27);
     color: white;
-
     width: 95%;
     height: auto;
     border-radius: 0px 0px 15px 15px;
     position: relative;
-    bottom: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    bottom: 300px;
     transition: .65s;
 }
 

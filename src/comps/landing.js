@@ -6,6 +6,7 @@ class Landing extends Component {
     return (
       <div>
         <Navbar/>
+        <p>landing</p>
        
       </div>
     );

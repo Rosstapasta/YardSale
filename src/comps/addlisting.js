@@ -6,6 +6,7 @@ class AddListing extends Component {
     return (
       <div>
           <Navbar/>
+          <p>add listing</p>
        
       </div>
     );
