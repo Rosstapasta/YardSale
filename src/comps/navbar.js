@@ -79,6 +79,7 @@ class Navbar extends Component {
           <div className={this.state.dropMenu ? 'dropCats slide' : 'dropCats'}>
 
             <div className="CatPositions">
+            <div className="placeholder"></div>
             <Link to='/search/cat1' style={{ textDecoration: 'none', color: 'white' }}><h3 onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Cat 1</h3></Link>
             <Link to='/search/cat2' style={{ textDecoration: 'none', color: 'white' }}><h3 onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Cat 2</h3></Link>
             <Link to='/search/cat3' style={{ textDecoration: 'none', color: 'white' }}><h3 onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Cat 3</h3></Link>

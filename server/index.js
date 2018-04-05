@@ -76,8 +76,6 @@ app.get('/auth/logout', (req,res) => {
     req.logOut();
     res.redirect(`https://erix-domain.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost:3000&client_id=${CLIENT_ID}`)
 })
-// http://localhost:3000/
-// https://erix-domain.auth0.com/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
 
 
 app.get('/checkauth', (req, res, next) => {
@@ -85,6 +83,14 @@ app.get('/checkauth', (req, res, next) => {
         res.status(200).send(req.user)
     }else{
         res.status(500).send('ha! get lost')
+    }
+})
+
+app.get('/checkauth2', (req, res, next) => {
+    if(req.user){
+        res.status(200).send([{id: 1}])
+    }else{
+        res.status(200).send([{id: 0}])
     }
 })
 
