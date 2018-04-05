@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Navbar from './navbar';
+import './comps.css';
 
 class Profile extends Component {
   render() {
     return (
-      <div>
-        <Navbar/>
-        <p>profile</p>
+      <div className="compBody">
+
+          <div className="logout">Logout</div>
+          <div>hello</div>
        
       </div>
     );

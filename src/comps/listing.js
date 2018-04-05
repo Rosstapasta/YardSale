@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Navbar from './navbar';
+
 
 class Item extends Component {
   render() {
     return (
-      <div>
-        <Navbar/>
+      <div className="compBody">
+
         <p>listing</p>
        
       </div>

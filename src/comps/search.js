@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './navbar';
 
 class Search extends Component {
 
@@ -12,10 +11,9 @@ class Search extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.cat)
+    console.log(this.state.cat, "cat from state")
     return (
-      <div>
-        <Navbar/>
+      <div className="compBody">
         <p>{this.props.match.params.cat}</p>
         <p>search</p>
        

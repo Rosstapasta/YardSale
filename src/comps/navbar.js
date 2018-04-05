@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import './comps.css';
-import icon from './media/icon.png';
+import icon from './media/icon2.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Navbar extends Component {
   constructor(){
     super()
 
     this.state = {
-      dropMenu: false
+      dropMenu: false,
+      user: []
     }
 
   }
 
-  render() {
+  componentWillMount(){
+    axios.get('/checkauth').then( res => {
+      this.setState({user: [res.data] })
+    })
+  }
+
+  render(){
+    console.log(this.state.user, "user info from navbar")
     return (
       <div className="topLayer">
           <div className="navBody">
@@ -21,9 +30,13 @@ class Navbar extends Component {
 
               {/* desktop */}
             <div id="topE1" className='topEleme'>
-              <button id="login2" className='loginButton'>login/register</button>
+
+              {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login22" className='loginButton'>Profile</div></Link>}</div> :
+              <a style={{ textDecoration: 'none' }} href='http://localhost:3035/auth' ><div id="login22" className='loginButton'>login/register</div></a>}
+
               <Link to='/' style={{ textDecoration: 'none' }}><h2 className="GarageSale">Yard Sale</h2></Link>
-              <Link to='/search/none' style={{ textDecoration: 'none' }}><button id="login2" className="searchButton">~Search~</button></Link>
+              
+              <Link to='/search/none' style={{ textDecoration: 'none' }}><div id="login2" className="searchButton">~Search~</div></Link>
             </div>
 
             <div id="topE1" className='categories'>
@@ -37,17 +50,26 @@ class Navbar extends Component {
 
 
               {/* mobile */}
-            <div id="topE2" className='topEleme'>
+            <div id="topE2" >
 
               <div className="buttonsMobile">
               <Link to='/' style={{ textDecoration: 'none' }}><h2 className="GarageSale">Yard Sale</h2></Link>
-                <img onClick={() => this.setState({dropMenu: !this.state.dropMenu})} className="icon" src={ icon } alt='icon'/>
+                
               </div>
 
-              <div id="bm2" className="buttonsMobile">
-                <button id="login1" className='loginButton'>login/register</button>
+              <div id="bm2" className="buttonsMobile"> 
+
+                {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login1" className='loginButton'>Profile</div></Link>}</div> :
+                <a style={{ textDecoration: 'none' }} href='http://localhost:3035/auth' ><div id="login1" className='loginButton'>login/register</div></a>}
+
                 <div className="placeholder"></div>
-                <Link to='/search/none' style={{ textDecoration: 'none' }}><button id="login1" className="searchButton" onClick={() => this.setState({dropMenu: false })}>Search</button></Link>
+
+                <Link to='/search/none' style={{ textDecoration: 'none' }}><div id="login1" className="searchButton" onClick={() => this.setState({dropMenu: false })}>Search</div></Link>
+
+              </div>
+
+              <div id="bm3" className="buttonsMobile"> 
+              <img onClick={() => this.setState({dropMenu: !this.state.dropMenu})} className="icon" src={ icon } alt='icon'/>
               </div>
 
             </div>
