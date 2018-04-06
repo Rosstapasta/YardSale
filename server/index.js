@@ -94,4 +94,13 @@ app.get('/checkauth2', (req, res, next) => {
     }
 })
 
+
+app.post('/sendpics', (req, res, next) => {
+    console.log("hit sendpics in server")
+    
+    app.get('db').create_listing(req.user.id, req.body.picsArr).then( data => 
+        res.status(200).send(data)
+    )
+})
+
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )
