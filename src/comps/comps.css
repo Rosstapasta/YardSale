@@ -211,7 +211,8 @@
     height: 35px;
     width: 150px;
     font-size: 1.2rem;
-    border-radius: 12px;
+    border-radius: 6px;
+    border: none;
 }
 
 .profile1{
@@ -286,6 +287,34 @@
     background-color: white;
 }
 
-.dropzone{
+/* wizards */
+
+.inputsBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.wiz1Text{
     
+}
+
+#inputsR{
+    flex-direction: column;
+}
+
+.textArea{
+    width: 270px;
+    height: 120px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.2rem;
 }

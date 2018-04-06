@@ -43,7 +43,7 @@ class Profile extends Component {
 
               <div className="placeholder"></div>
 
-            <Link style={{ textDecoration: 'none' }} to='/addlisting'><button className="listings">New Listing</button></Link>
+            <Link style={{ textDecoration: 'none' }} to='/wiz1'><button className="listings">New Listing</button></Link>
 
               <div className="placeholder"></div>
 
