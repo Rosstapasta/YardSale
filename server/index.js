@@ -30,19 +30,12 @@ const upload = multer({
   limits: { fileSize: 52428800 },
 });
 
-
-
 //newstuff above
 
 
 require('dotenv').config();
 
 const app = express();
-
-// app.use(cors({
-//     origin: 'http://localhost:3035',
-//     credentials: true
-//   }));
 
 const {
     CONNECTION_STRING,
@@ -130,13 +123,13 @@ app.get('/checkauth2', (req, res, next) => {
 })
 
 
-app.post('/sendpics', (req, res, next) => {
-    console.log("hit sendpics in server")
+// app.post('/sendpics', (req, res, next) => {
+//     console.log("hit sendpics in server")
     
-    app.get('db').create_listing(req.user.id, req.body.picsArr).then( data => 
-        res.status(200).send(data)
-    )
-})
+//     app.get('db').create_listing(req.user.id, req.body.picsArr).then( data => 
+//         res.status(200).send(data)
+//     )
+// })
 
 
 app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
@@ -154,6 +147,14 @@ app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
         if (err) return res.status(400).send(err);
         res.send('File uploaded to S3');
     })
+})
+
+app.post('/createlisting', (req, res, next) => {
+    const { name, description, price, city, stateUSA, cat, text } = req.body;
+    console.log(req.body, "req.body from server")
+    app.get('db').create_listing(req.user.id, price, city, stateUSA, name, cat, description, text).then(
+        data => res.status(200).send(data)
+    )
 })
 
 

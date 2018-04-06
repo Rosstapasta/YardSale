@@ -1,7 +1,7 @@
 insert into listing
-(user_id, images)
-values
-( ($1), array [($2)]);
+(user_id, price, city, stateUSA, item, cat, descript, img)
+VALUES
+(($1), ($2), ($3), ($4), ($5), ($6), ($7), ($8));
 
-select * from listing
-where user_id = ($1);
+
+

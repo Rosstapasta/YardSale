@@ -2,9 +2,9 @@ create table if not exists users
 (id serial primary key, auth_id text, email varchar(80), first_name varchar(80), last_name varchar(80));
 
 create table if not exists listing
-(item_id serial primary key, user_id integer, price integer,
-city varchar(80), state varchar(80), item_name varchar(80),
-images text []);
+(item_id serial primary key, user_id varchar(80), price integer,
+city varchar(80), stateUSA varchar(80), item varchar(80),
+cat varchar(80), descript varchar(200), img varchar(80));
 
 
 -- test

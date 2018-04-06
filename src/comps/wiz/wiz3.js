@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { getUser } from '../../ducks/reducer';
 import Dropzone from 'react-dropzone';
 import upload from 'superagent';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 class Wiz3 extends Component {
@@ -30,17 +31,21 @@ class Wiz3 extends Component {
 
   createListing(){
     var sendF = this.state.files[0];
-
-    var text = "";
-    
+    var text = "";  
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    const { name, description, price, city, stateUSA, cat} = this.props;
     
     for (var i = 0; i < 5; i++){
         text += possible.charAt(Math.floor(Math.random() * possible.length)
       )
     };
 
-    this.setState({imageKey: text});
+    this.setState({imageKey: text},
+    () => axios.post('/createlisting', { name, description, price, city, stateUSA, cat, text}).then(
+        res => this.props.history.push('/')
+    )
+    );
 
     upload.post(`/upload?key=${text}`)
       .attach('theseNamesMustMatch', sendF )
@@ -64,7 +69,7 @@ class Wiz3 extends Component {
     return (
       <div className="compBody">
 
-        <h1>Step 1</h1>
+        <h1 className="ball">3</h1>
 
         <div className='imgContainer'>
         <img className="imgPreview" src={preview} alt='preview'/>
@@ -75,6 +80,8 @@ class Wiz3 extends Component {
         </Dropzone>
 
         <button className='fileb64' onClick={() => this.createListing() }><h2>Create Listing</h2></button>
+
+        <Link to='/wiz2'><h1>back</h1></Link>
 
       </div>
     );
