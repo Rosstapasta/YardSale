@@ -5,9 +5,44 @@ const massive = require('massive');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+
+
+//newstuff below
+const multer = require('multer');
+const AWS = require('AWS-SDK')
+
+const s3 = new AWS.S3();
+
+AWS.config.update(
+    {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      subregion: 'us-west-2',
+    });
+
+// const router = new express.Router();
+
+// Multer config
+// memory storage keeps file data in a buffer
+const upload = multer({
+  storage: multer.memoryStorage(),
+  // file size limitation in bytes
+  limits: { fileSize: 52428800 },
+});
+
+
+
+//newstuff above
+
+
 require('dotenv').config();
 
 const app = express();
+
+// app.use(cors({
+//     origin: 'http://localhost:3035',
+//     credentials: true
+//   }));
 
 const {
     CONNECTION_STRING,
@@ -102,5 +137,25 @@ app.post('/sendpics', (req, res, next) => {
         res.status(200).send(data)
     )
 })
+
+
+app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
+    console.log('hit router s3 in server')
+    // req.file is the 'theseNamesMustMatch' file
+
+    const { key } = req.query;
+    console.log(req.query.key, "key from server");
+    s3.putObject({
+        Bucket: 'yardsaleapp333',
+        Key: `${key}.jpeg`, 
+        Body: req.file.buffer,
+        ACL: 'public-read', // your permisions  
+      }, (err) => { 
+        if (err) return res.status(400).send(err);
+        res.send('File uploaded to S3');
+    })
+})
+
+
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )
