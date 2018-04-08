@@ -14,6 +14,7 @@ class Profile extends Component {
   }
 
   componentWillMount(){
+    window.scrollTo(0, 0);
     const { history } = this.props;
     this.props.getUser(history)
   }

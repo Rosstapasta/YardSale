@@ -21,6 +21,7 @@ class Wiz3 extends Component {
   }
 
   componentWillMount(){
+    window.scrollTo(0, 0);
     const { history } = this.props;
     this.props.getUser(history)
   }
@@ -36,14 +37,14 @@ class Wiz3 extends Component {
 
     const { name, description, price, city, stateUSA, cat} = this.props;
     
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < 10; i++){
         text += possible.charAt(Math.floor(Math.random() * possible.length)
       )
     };
 
     this.setState({imageKey: text},
     () => axios.post('/createlisting', { name, description, price, city, stateUSA, cat, text}).then(
-        res => this.props.history.push('/')
+        res => this.props.history.push('/mylistings')
     )
     );
 
@@ -69,7 +70,14 @@ class Wiz3 extends Component {
     return (
       <div className="compBody">
 
-        <h1 className="ball">3</h1>
+        <div className="inputs">
+        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
+        <div className="placeholder"/>
+        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz2'><h2 className='ball'>2</h2></Link>
+        <div className="placeholder"/>
+        <h2 id='ball2' className='ball'>3</h2>
+
+        </div>
 
         <div className='imgContainer'>
         <img className="imgPreview" src={preview} alt='preview'/>
@@ -81,7 +89,7 @@ class Wiz3 extends Component {
 
         <button className='fileb64' onClick={() => this.createListing() }><h2>Create Listing</h2></button>
 
-        <Link to='/wiz2'><h1>back</h1></Link>
+        <Link to='/wiz2' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>back</h1></Link>
 
       </div>
     );

@@ -4,10 +4,25 @@ import { getUser, updateCity, updateState, updateCat } from '../../ducks/reducer
 import { Link } from 'react-router-dom';
 
 class Wiz2 extends Component {
+
+  componentWillMount(){
+    window.scrollTo(0, 0);
+    const { history } = this.props;
+    this.props.getUser(history)
+  }
+
   render() {
     return (
       <div className="compBody">
-        <h1 className='ball'>2</h1>
+        
+        <div className="inputs">
+        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
+        <div className="placeholder"/>
+        <h2 id='ball2' className='ball'>2</h2>
+        <div className="placeholder"/>
+        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz3'><h2 className='ball'>3</h2></Link>
+
+        </div>
 
 
         <div className='inputsBody'>
@@ -39,10 +54,10 @@ class Wiz2 extends Component {
 
 
         <div className='inputs'>
-            <Link to='/wiz1'><h1>back</h1></Link>
+            <Link to='/wiz1' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>back</h1></Link>
             <div className='placeholder'/>
             <div className='placeholder'/>
-            <Link to='/wiz3'><h1>next</h1></Link>
+            <Link to='/wiz3' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>next</h1></Link>
         </div>
 
         

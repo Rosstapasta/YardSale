@@ -157,6 +157,13 @@ app.post('/createlisting', (req, res, next) => {
     )
 })
 
+app.get('/userlistings', (req, res, next) => {
+
+    app.get('db').get_user_listings(req.user.id).then(
+        data => res.status(200).send(data)
+    )
+})
+
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )
