@@ -44,7 +44,7 @@ class Wiz3 extends Component {
 
     this.setState({imageKey: text},
     () => axios.post('/createlisting', { name, description, price, city, stateUSA, cat, text}).then(
-        res => this.props.history.push('/mylistings')
+        res => this.props.history.push('/profile')
     )
     );
 

@@ -154,13 +154,18 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 1;
-    bottom: 300px;
+    bottom: 397px;
     transition: .65s;
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 0 6px 6px 0 rgba(0,0,0,.2);
 }
 
 .slide{
-    bottom: 25px;
+    bottom: 40px;
+}
+
+.catText{
+    border-bottom: 2px solid white;
+    width: 85%;
 }
 
 .CatPositions{
@@ -192,7 +197,7 @@
     top: 158px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     background-color: #C6DBF0;
     width: 100vw;
@@ -353,23 +358,28 @@
     align-items: center;
     width: 250px;
     height: auto;
+    max-height: 346px;
     padding: 20px;
     background-color: #7C95EC;
     margin-bottom: 45px;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 0 6px 6px 0 rgba(0,0,0,.2);
-
 }
 
+/* .listOuter{
+    max-height: 400px;
+} */
+
 .listImg{
-    width: 100%;
-    height: 100%;
+    
+    height: 150px;
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 0 6px 6px 0 rgba(0,0,0,.2);
     border-radius: 6px;
+    position: relative;
+
 }
 
 .rowDisp{
-    
     display: flex;
     flex-direction: row;
 }
@@ -383,4 +393,96 @@
     border: none;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+#mylistings{
+    border-bottom: 3px solid black;
+    margin-bottom: 59px;
+}
+
+.borderunder{
+    width: 60%;
+    border-bottom: 2px solid black;
+}
+
+.listTitle{
+    letter-spacing: 3px;
+    position: relative;
+    font-family: 'Permanent Marker', 'cursive';
+    letter-spacing: 2px;
+    max-height: 45px;
+    bottom: 8px;
+}
+
+.rowDisp2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    
+}
+
+.pin{
+    width: 45px;
+    height: 45px;
+    position: relative;
+    bottom: 29px;
+    transform: rotate(340deg);
+}
+
+#rotate{
+    bottom: 30px;
+    transform: rotate(300deg);
+    width: 45px;
+    height: 45px;
+    right: 4px;
+}
+
+.paper{
+    display: flex;
+    position: relative;
+    top: 370px;
+    height: 390px;
+    right: 10px;
+    width: 320px;
+}
+
+
+.deleteConfirm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(79, 143, 226);
+    position: fixed;
+    border-radius: 10px;
+
+    top: 55%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    
+}
+
+/* @media(min-height: 670px){
+
+    .pin{
+        display: flex;
+        position: fixed;
+        top: 300px;
+        
+    }
+
+} */
+
+
+/* search */
+
+.searchTitle{
+
+    margin-top: 40px;
+    
 }

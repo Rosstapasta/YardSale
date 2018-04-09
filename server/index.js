@@ -164,6 +164,19 @@ app.get('/userlistings', (req, res, next) => {
     )
 })
 
+app.delete('/deletelisting', (req, res, next) => {
+
+    app.get('db').delete_listing(req.query.list).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+
+app.get('/alllistings', (req, res, next) => {
+
+    app.get('db')
+})
+
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )
