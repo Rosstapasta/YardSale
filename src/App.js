@@ -10,6 +10,7 @@ import Navbar from './comps/navbar';
 import Wiz1 from './comps/wiz/wiz1';
 import Wiz2 from './comps/wiz/wiz2';
 import Wiz3 from './comps/wiz/wiz3';
+import Edit from './comps/editListing';
 // import './App.css';
 
 class App extends Component {
@@ -31,7 +32,8 @@ class App extends Component {
             <Route path='/mylistings' component={ MyListings }/>
             <Route path='/wiz1' component={ Wiz1}/>
             <Route path='/wiz2' component={ Wiz2}/> 
-            <Route path='/wiz3' component={ Wiz3}/> 
+            <Route path='/wiz3' component={ Wiz3}/>
+            <Route path='/edit/:listId' component={ Edit }/>
           </Switch>
           </div>  
       </div>

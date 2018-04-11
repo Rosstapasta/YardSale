@@ -8,7 +8,7 @@ const initialState = {
     price: '',
     city: '',
     stateUSA: '',
-    cat: ''
+    cat: 'Antiques'
 }
 
 const GET_USER = 'GET_USER';

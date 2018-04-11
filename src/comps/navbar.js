@@ -34,20 +34,20 @@ class Navbar extends Component {
               {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login22" className='loginButton'>Profile</div></Link>}</div> :
               <a style={{ textDecoration: 'none' }} href='http://localhost:3035/auth' ><div id="login22" className='loginButton'>login/register</div></a>}
 
-              <Link to='/' style={{ textDecoration: 'none' }}><h2 className="GarageSale">Yard Sale</h2></Link>
+              <Link to='/' style={{ textDecoration: 'none' }}><h2 id='gs' className="GarageSale">Yard Sale</h2></Link>
               
               <Link to='/search/none' style={{ textDecoration: 'none' }}><div id="login2" className="searchButton">~Search~</div></Link>
             </div>
 
             <div id="topE1" className='categories'>
-            <Link to='/search/antiques' style={{ textDecoration: 'none', color: 'black' }}><h3>Antiques</h3></Link>
-            <Link to='/search/cars' style={{ textDecoration: 'none', color: 'black' }}><h3>Cars</h3></Link>
-            <Link to='/search/clothing' style={{ textDecoration: 'none', color: 'black' }}><h3>Clothing</h3></Link>
-            <Link to='/search/collectables' style={{ textDecoration: 'none', color: 'black' }}><h3>Collectables</h3></Link>
-            <Link to='/search/computers' style={{ textDecoration: 'none', color: 'black' }}><h3>Computers</h3></Link>
-            <Link to='/search/electronics' style={{ textDecoration: 'none', color: 'black' }}><h3>Electronics</h3></Link>
-            <Link to='/search/instruments' style={{ textDecoration: 'none', color: 'black' }}><h3>Instruments</h3></Link>
-            <Link to='/search/misc' style={{ textDecoration: 'none', color: 'black' }}><h3>Other/Misc</h3></Link>
+            <Link to='/search/Antiques' style={{ textDecoration: 'none', color: 'black' }}><h3>Antiques</h3></Link>
+            <Link to='/search/Cars' style={{ textDecoration: 'none', color: 'black' }}><h3>Cars</h3></Link>
+            <Link to='/search/Clothing' style={{ textDecoration: 'none', color: 'black' }}><h3>Clothing</h3></Link>
+            <Link to='/search/Collectables' style={{ textDecoration: 'none', color: 'black' }}><h3>Collectables</h3></Link>
+            <Link to='/search/Computers' style={{ textDecoration: 'none', color: 'black' }}><h3>Computers</h3></Link>
+            <Link to='/search/Electronics' style={{ textDecoration: 'none', color: 'black' }}><h3>Electronics</h3></Link>
+            <Link to='/search/Instruments' style={{ textDecoration: 'none', color: 'black' }}><h3>Instruments</h3></Link>
+            <Link to='/search/Misc' style={{ textDecoration: 'none', color: 'black' }}><h3>Other/Misc</h3></Link>
             </div>
 
 
@@ -82,21 +82,22 @@ class Navbar extends Component {
 
             <div className="CatPositions">
             <div className="placeholder"></div>
-            <Link to='/search/antiques' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText' onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Antiques</h3></Link>
 
-            <Link to='/search/cars' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Cars</h3></Link>
+            <Link to='/search/Antiques' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText' onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>1 - Antiques</h3></Link>
 
-            <Link to='/search/clothing' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Clothing</h3></Link>
+            <Link to='/search/Cars' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>2 - Cars</h3></Link>
 
-            <Link to='/search/collectables' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Collectables</h3></Link>
+            <Link to='/search/Clothing' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>3 - Clothing</h3></Link>
 
-            <Link to='/search/computers' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Computers</h3></Link>
+            <Link to='/search/Collectables' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>4 - Collectables</h3></Link>
 
-            <Link to='/search/electronics' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Electronics</h3></Link>
+            <Link to='/search/Computers' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>5 - Computers</h3></Link>
 
-            <Link to='/search/instruments' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Instruments</h3></Link>
+            <Link to='/search/Electronics' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>6 - Electronics</h3></Link>
 
-            <Link to='/search/misc' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>Other/Misc</h3></Link>
+            <Link to='/search/Instruments' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>7 - Instruments</h3></Link>
+
+            <Link to='/search/Misc' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catText'  onClick={() => this.setState({dropMenu: !this.state.dropMenu})}>8 - Other/Misc</h3></Link>
             </div>
 
           </div>

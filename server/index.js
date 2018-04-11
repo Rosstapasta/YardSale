@@ -174,7 +174,25 @@ app.delete('/deletelisting', (req, res, next) => {
 
 app.get('/alllistings', (req, res, next) => {
 
-    app.get('db')
+    app.get('db').get_all_listings().then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+
+app.post('/allfromcat', (req, res, next) => {
+    const { cat } = req.body;
+    console.log(req.body.cat, 'cat from server')
+    app.get('db').get_from_cat(cat).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+app.post('/editlisting', (req, res, next) => {
+
+    app.get('db').edit_listing(req.body.listId).then( resp => {
+        res.status(200).send(resp)
+    })
 })
 
 

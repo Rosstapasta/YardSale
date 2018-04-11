@@ -4,6 +4,9 @@ import { getUser } from '../ducks/reducer';
 import axios from 'axios';
 import pin from './media/pin2.png';
 import paper from './media/paper.png';
+import tape from './media/tape.png';
+import { Link } from 'react-router-dom';
+// import board from './media/board2.jpg';
 
 class MyListings extends Component {
   constructor(){
@@ -50,8 +53,8 @@ class MyListings extends Component {
 
       return (
         <div className="listOuter">
-        {/* <img className='paper' src={paper}/> */}
             <div key={i} className="listBody">
+            <img className='paper' src={paper}/>
 
               <div className='rowDisp2'>
                 <img id='rotate' className="pin" src={pin} alt='pin'/>
@@ -59,12 +62,21 @@ class MyListings extends Component {
                 <img className='pin' src={pin} alt='pin'/>
               </div>
 
+              <div className='imgwithimg'>
+
+        <img id='t1' className='tape' src={ tape } alt='tape'/>
+        <img id='t2' className='tape2' src={ tape } alt='tape'/>
+        <img id='t3' className='tape' src={ tape } alt='tape'/>
+        <img id='t4' className='tape2' src={ tape } alt='tape'/>
               <img className="listImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${lst.img}.jpeg`}/>
+              </div>
+
+
               <div className='placeholder'/>
               <div className="rowDisp">
 
               <div className='rowDisp'>
-                <button className="lstButton">edit</button>
+                <Link to={`/edit/${lst.item_id}`}><button className="lstButton">edit</button></Link>
                 <button className="lstButton" onClick={() => this.setState({delete: true, deleteProp: lst.item_id })}>delete</button>
               </div>
               

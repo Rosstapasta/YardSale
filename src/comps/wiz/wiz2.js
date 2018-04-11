@@ -14,7 +14,7 @@ class Wiz2 extends Component {
   render() {
     return (
       <div className="compBody">
-        
+        <div className='placeholder'/>
         <div className="inputs">
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
         <div className="placeholder"/>
@@ -41,12 +41,14 @@ class Wiz2 extends Component {
             <h2>Category</h2>
             <div className='placeholder'/>
                 <select value={this.props.cat} className='profileInput' onChange={(e) => this.props.updateCat(e.target.value)}>             
-                    <option value='cat 1'>cat 1</option>
-                    <option value='cat 2'>cat 2</option>
-                    <option value='cat 3'>cat 3</option>
-                    <option value='cat 4'>cat 4</option>
-                    <option value='cat 5'>cat 5</option>
-                    <option value='cat 6'>cat 6</option>
+                    <option value='Antiques'>Antiques</option>
+                    <option value='Cars'>Cars</option>
+                    <option value='Clothing'>Clothing</option>
+                    <option value='Collectables'>Collectables</option>
+                    <option value='Computers'>Computers</option>
+                    <option value='Electronics'>Electronics</option>
+                    <option value='Instruments'>Instruments</option>
+                    <option value='Misc'>Other/Misc</option>
                 </select>
             </div>
 

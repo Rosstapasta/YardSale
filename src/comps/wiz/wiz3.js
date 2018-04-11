@@ -69,7 +69,7 @@ class Wiz3 extends Component {
 
     return (
       <div className="compBody">
-
+        <div className='placeholder'/>
         <div className="inputs">
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
         <div className="placeholder"/>
