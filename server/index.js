@@ -7,6 +7,7 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
 
+
 //newstuff below
 const multer = require('multer');
 const AWS = require('AWS-SDK')
@@ -15,26 +16,27 @@ const s3 = new AWS.S3();
 
 AWS.config.update(
     {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      subregion: 'us-west-2',
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        subregion: 'us-west-2',
     });
-
-// const router = new express.Router();
-
-// Multer config
-// memory storage keeps file data in a buffer
-const upload = multer({
-  storage: multer.memoryStorage(),
-  // file size limitation in bytes
-  limits: { fileSize: 52428800 },
-});
-
-//newstuff above
-
-
+    
+    // const router = new express.Router();
+    
+    // Multer config
+    // memory storage keeps file data in a buffer
+    const upload = multer({
+        storage: multer.memoryStorage(),
+        // file size limitation in bytes
+        limits: { fileSize: 52428800 },
+    });
+    
+    //newstuff above
+    
+    
 require('dotenv').config();
-
+    
+const client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 const app = express();
 
 const {
@@ -149,6 +151,23 @@ app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
     })
 })
 
+app.post('/twiliotest', (req, res) => {
+    const {sender, message, phone} = req.body;
+    console.log(req.body)
+
+    client.messages.create({
+        to: `+1${phone}`,
+        from: '+13853360756',
+        body: `message: ${message} contact: ${sender}` }, function(err, data){
+            if(err){
+                console.log(err);
+            }else{
+                console.log(data)
+            }
+        })
+})
+
+
 app.post('/createlisting', (req, res, next) => {
     const { name, description, price, city, stateUSA, cat, text } = req.body;
     console.log(req.body, "req.body from server")
@@ -173,8 +192,8 @@ app.delete('/deletelisting', (req, res, next) => {
 
 
 app.get('/alllistings', (req, res, next) => {
-
-    app.get('db').get_all_listings().then( resp => {
+    const { price, state, city} = req.query
+    app.get('db').get_all_listings(price , state, city).then( resp => {
         res.status(200).send(resp)
     })
 })
@@ -182,8 +201,10 @@ app.get('/alllistings', (req, res, next) => {
 
 app.post('/allfromcat', (req, res, next) => {
     const { cat } = req.body;
+    const { price, state, city} = req.query;
+
     console.log(req.body.cat, 'cat from server')
-    app.get('db').get_from_cat(cat).then( resp => {
+    app.get('db').get_from_cat(cat, price, state, city).then( resp => {
         res.status(200).send(resp)
     })
 })
@@ -191,6 +212,15 @@ app.post('/allfromcat', (req, res, next) => {
 app.post('/editlisting', (req, res, next) => {
 
     app.get('db').edit_listing(req.body.listId).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+
+app.post('/viewlisting', (req, res, next) => {
+    console.log(req.body)
+
+    app.get('db').view_listing(req.body.itemId).then( resp => {
         res.status(200).send(resp)
     })
 })

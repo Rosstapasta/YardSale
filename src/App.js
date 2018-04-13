@@ -26,7 +26,7 @@ class App extends Component {
           <Switch>
             <Route path='/' component={ Landing } exact/>
             <Route path='/search/:cat' component={ Search }/>
-            <Route path='/listing' component={ Listing }/>
+            <Route path='/listing/:itemId' component={ Listing }/>
             <Route path='/profile' component={ Profile }/>
             <Route path='/addlisting' component={ AddListing }/>
             <Route path='/mylistings' component={ MyListings }/>

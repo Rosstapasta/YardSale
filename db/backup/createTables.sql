@@ -1,5 +1,5 @@
 create table if not exists users
-(id serial primary key, auth_id text, email varchar(80), first_name varchar(80), last_name varchar(80));
+(id serial primary key, auth_id text, phone bigint, first_name varchar(80), last_name varchar(80));
 
 create table if not exists listing
 (item_id serial primary key, user_id integer, price integer,

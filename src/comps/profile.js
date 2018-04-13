@@ -28,7 +28,7 @@ class Profile extends Component {
               <div className="placeholder"></div>
 
             <div className="pInputRow">
-              <h2 style={{ fontFamily: 'Permanent Marker'}}>Email</h2>
+              <h2 style={{ fontFamily: 'Permanent Marker'}}>Phone</h2>
               <div className="placeholder"></div>
               <input className="profileInput"/>
             </div>
