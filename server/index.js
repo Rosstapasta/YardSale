@@ -171,21 +171,20 @@ app.post('/twiliotest', (req, res) => {
 
 app.post('/createlisting', (req, res, next) => {
     const { name, description, price, city, stateUSA, cat, text } = req.body;
-    console.log(req.body, "req.body from server")
-    app.get('db').create_listing(req.user.id, price, city, stateUSA, name, cat, description, text).then(
+    const zero = 0;
+
+    app.get('db').create_listing(req.user.id, price, city, stateUSA, name, cat, description, text, zero).then(
         data => res.status(200).send(data)
     )
 })
 
 app.get('/userlistings', (req, res, next) => {
-
     app.get('db').get_user_listings(req.user.id).then(
         data => res.status(200).send(data)
     )
 })
 
 app.delete('/deletelisting', (req, res, next) => {
-
     app.get('db').delete_listing(req.query.list).then( resp => {
         res.status(200).send(resp)
     })
@@ -203,15 +202,12 @@ app.get('/alllistings', (req, res, next) => {
 app.post('/allfromcat', (req, res, next) => {
     const { cat } = req.body;
     const { price, state, city} = req.query;
-
-    console.log(req.body.cat, 'cat from server')
     app.get('db').get_from_cat(cat, price, state, city).then( resp => {
         res.status(200).send(resp)
     })
 })
 
 app.post('/editlisting', (req, res, next) => {
-
     app.get('db').edit_listing(req.body.listId).then( resp => {
         res.status(200).send(resp)
     })
@@ -219,27 +215,26 @@ app.post('/editlisting', (req, res, next) => {
 
 
 app.post('/viewlisting', (req, res, next) => {
-    // console.log(req.body)
-
     app.get('db').view_listing(req.body.itemId).then( resp => {
         res.status(200).send(resp)
     })
 })
 
 app.post('/userlike', (req, res, next) => {
-        console.log(req.body, 'bodybody')
     app.get('db').likes(req.user.id, req.body.itemId).then( resp => {
-        console.log(resp, "in likes")
         res.status(200).send(resp)
     })
 })
 
 app.post('/newlike', (req, res, next) => {
-
-    app.get('db').new_like(req.user.id, req.body.itemId).then( resp => {
+    app.get('db').new_like(req.user.id, req.body.itemId, req.body.newLike).then( resp => {
         res.status(200).send(resp)
+    })
+})
 
-        console.log(resp, 'resp from server')
+app.delete('/unlike', (req, res, next) => {
+    app.get('db').delete_like(req.user.id, req.query.itemId, req.query.newLike).then( resp => {
+        res.status(200).send(resp)
     })
 })
 

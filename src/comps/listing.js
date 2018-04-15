@@ -20,6 +20,7 @@ class Item extends Component {
     this.sendText = this.sendText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.like = this.like.bind(this);
+    this.unLike = this.unLike.bind(this);
   }
 
 
@@ -48,9 +49,26 @@ class Item extends Component {
   like(){
 
     const { itemId } = this.props.match.params;
+    const { likes } = this.state.item;
+    var newLike = likes;
+    newLike++;
 
-    axios.post('/newlike', {itemId} ).then( res => {
+    axios.post('/newlike', {itemId, newLike} ).then( res => {
       this.setState({ like: res.data })
+    }, console.log(this.state.like, "inside like method"));
+
+  }
+
+  unLike(){
+
+    const { itemId } = this.props.match.params;
+
+    const { likes } = this.state.item;
+    var newLike = likes;
+    newLike--;
+
+    axios.delete(`/unlike?itemId=${itemId}&newLike=${newLike}`).then( res => {
+      this.setState({ like: [{item_id: 0}] })
     }, console.log(this.state.like, "inside like method"));
 
   }
@@ -70,7 +88,7 @@ class Item extends Component {
 
   render() {
 
-    console.log(this.state.like, this.state.user, "likes")
+    console.log(this.state.item, this.state.user, "likes")
     return (
       <div className="compBody">
 
@@ -89,7 +107,7 @@ class Item extends Component {
     
         <div>
           {this.state.like[0].item_id !== 0 ? <div>{
-            <img className="heart" src={heart}/>
+            <img className="heart" src={heart} onClick={ () => this.unLike()}/>
           }</div> : 
           <img className="heart" src={heartE} onClick={() => this.like()}/>
           }
