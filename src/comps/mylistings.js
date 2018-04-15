@@ -92,7 +92,7 @@ class MyListings extends Component {
       <div>
       <div className="compBody">
 
-        <h1 id='mylistings' className='GarageSale'>My Listings</h1>
+        <h1 id='mylistings' className='searchTitle2'>My Listings</h1>
 
         {listings}
 
@@ -101,8 +101,8 @@ class MyListings extends Component {
         <div className='deleteConfirm'>
           <h1>Are you sure?</h1>
           <div>
-          <button className='lstButton' onClick={ () => this.deleteListing()}>Yes</button>
-          <button className='lstButton' onClick={() => this.setState({delete: false, deleteProp: ''})}>No</button>
+          <button id='searchB' className='lstButton' onClick={ () => this.deleteListing()}>Yes</button>
+          <button id='searchB' className='lstButton' onClick={() => this.setState({delete: false, deleteProp: ''})}>No</button>
           </div>
         </div>
 

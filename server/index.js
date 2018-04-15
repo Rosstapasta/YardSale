@@ -158,13 +158,14 @@ app.post('/twiliotest', (req, res) => {
     client.messages.create({
         to: `+1${phone}`,
         from: '+13853360756',
-        body: `message: ${message} contact: ${sender}` }, function(err, data){
+        body: `You have a message from Yard Sale: ${message} 
+        contact: Brian at ${sender}` }, function(err, data){
             if(err){
                 console.log(err);
             }else{
                 console.log(data)
             }
-        })
+        }).then( res.status(200).send("it worked"))
 })
 
 
@@ -218,10 +219,27 @@ app.post('/editlisting', (req, res, next) => {
 
 
 app.post('/viewlisting', (req, res, next) => {
-    console.log(req.body)
+    // console.log(req.body)
 
     app.get('db').view_listing(req.body.itemId).then( resp => {
         res.status(200).send(resp)
+    })
+})
+
+app.post('/userlike', (req, res, next) => {
+        console.log(req.body, 'bodybody')
+    app.get('db').likes(req.user.id, req.body.itemId).then( resp => {
+        console.log(resp, "in likes")
+        res.status(200).send(resp)
+    })
+})
+
+app.post('/newlike', (req, res, next) => {
+
+    app.get('db').new_like(req.user.id, req.body.itemId).then( resp => {
+        res.status(200).send(resp)
+
+        console.log(resp, 'resp from server')
     })
 })
 

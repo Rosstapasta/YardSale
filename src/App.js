@@ -11,12 +11,13 @@ import Wiz1 from './comps/wiz/wiz1';
 import Wiz2 from './comps/wiz/wiz2';
 import Wiz3 from './comps/wiz/wiz3';
 import Edit from './comps/editListing';
-// import './App.css';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='app4'>
+      <div className='app3'>
         
         <div style={{ position: 'relative', zIndex: "2" }}>
         <Navbar/>
@@ -35,7 +36,8 @@ class App extends Component {
             <Route path='/wiz3' component={ Wiz3}/>
             <Route path='/edit/:listId' component={ Edit }/>
           </Switch>
-          </div>  
+          </div> 
+      </div> 
       </div>
     );
   }

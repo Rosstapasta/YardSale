@@ -40,14 +40,14 @@ class Navbar extends Component {
             </div>
 
             <div id="topE1" className='categories'>
-            <Link to='/search/Antiques' style={{ textDecoration: 'none', color: 'black' }}><h3>Antiques</h3></Link>
-            <Link to='/search/Cars' style={{ textDecoration: 'none', color: 'black' }}><h3>Cars</h3></Link>
-            <Link to='/search/Clothing' style={{ textDecoration: 'none', color: 'black' }}><h3>Clothing</h3></Link>
-            <Link to='/search/Collectables' style={{ textDecoration: 'none', color: 'black' }}><h3>Collectables</h3></Link>
-            <Link to='/search/Computers' style={{ textDecoration: 'none', color: 'black' }}><h3>Computers</h3></Link>
-            <Link to='/search/Electronics' style={{ textDecoration: 'none', color: 'black' }}><h3>Electronics</h3></Link>
-            <Link to='/search/Instruments' style={{ textDecoration: 'none', color: 'black' }}><h3>Instruments</h3></Link>
-            <Link to='/search/Misc' style={{ textDecoration: 'none', color: 'black' }}><h3>Other/Misc</h3></Link>
+            <Link to='/search/Antiques' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Antiques</h3></Link>
+            <Link to='/search/Cars' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Cars</h3></Link>
+            <Link to='/search/Clothing' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Clothing</h3></Link>
+            <Link to='/search/Collectables' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Collectables</h3></Link>
+            <Link to='/search/Computers' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Computers</h3></Link>
+            <Link to='/search/Electronics' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Electronics</h3></Link>
+            <Link to='/search/Instruments' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Instruments</h3></Link>
+            <Link to='/search/Misc' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Other/Misc</h3></Link>
             </div>
 
 

@@ -112,10 +112,13 @@ class Search extends Component {
     })
 
     return (
-      <div className="compBody">
+      <div id={`${this.props.match.params.cat}`} className="compBody">
         
-        <h2 className='searchTitle'> Category: {this.props.match.params.cat}</h2>
-        <button className='lstButton' onClick={() => this.setState({refine: true})}>Refine Search</button>
+
+        <div className='sRow'>
+        <h2 className='searchTitle2'>{this.props.match.params.cat}</h2>
+        <button id='sbb' className='searchButton' onClick={() => this.setState({refine: true})}>Refine Search</button>
+        </div>
 
         { this.state.refine ? <div>{
           <div className="deleteConfirm">
