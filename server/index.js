@@ -238,6 +238,13 @@ app.delete('/unlike', (req, res, next) => {
     })
 })
 
+app.get('/landing', (req, res, next) => {
+
+    app.get('db').get_favorites().then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )
