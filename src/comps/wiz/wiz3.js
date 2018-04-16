@@ -89,7 +89,7 @@ class Wiz3 extends Component {
 
         <button className='fileb64' onClick={() => this.createListing() }><h2>Create Listing</h2></button>
 
-        <Link to='/wiz2' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>back</h1></Link>
+        <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>
 
       </div>
     );

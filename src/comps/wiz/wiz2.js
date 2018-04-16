@@ -56,10 +56,10 @@ class Wiz2 extends Component {
 
 
         <div className='inputs'>
-            <Link to='/wiz1' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>back</h1></Link>
+            <Link to='/wiz1' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>
             <div className='placeholder'/>
             <div className='placeholder'/>
-            <Link to='/wiz3' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>next</h1></Link>
+            <Link to='/wiz3' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>next</h1></Link>
         </div>
 
         

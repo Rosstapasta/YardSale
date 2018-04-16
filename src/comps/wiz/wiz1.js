@@ -47,7 +47,7 @@ class Wiz1 extends Component {
         </div>
 
 
-        <Link to='/wiz2' style={{textDecoration: 'none', color: '#7C95EC'}}><h1>next</h1></Link>
+        <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>next</h1></Link>
        
       </div>
     );

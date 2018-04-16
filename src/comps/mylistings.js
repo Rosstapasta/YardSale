@@ -54,7 +54,7 @@ class MyListings extends Component {
             {/* <img className='paper' src={paper}/> */}
 
               <div>
-                <img id='rotate' className="pin" src={pin} alt='pin'/>
+                <div id='rotate' className="pin"/>
               <h2 className="listTitle">{lst.item}</h2>
                 {/* <img className='pin' src={pin} alt='pin'/> */}
               </div>
