@@ -40,7 +40,7 @@ export default class Edit extends Component{
             <h2 className="editText">Item</h2>
             <input className='editInput' value={this.state.item}/>
 
-            <div id='pol' className='imgwithimg'>
+            <div id='pol2' className='imgwithimg'>
             {/* <img id='pin1' className="pinp1" src={pin} alt='pin'/>
             <img id='pin2' className='pinp2' src={pin} alt='pin2'/> */}
             {/* <img id='pin3' className="pinp1" src={pin} alt='pin'/>

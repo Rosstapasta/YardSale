@@ -47,7 +47,7 @@ class Landing extends Component {
 
     var listing2 = newListings.map( (post, i) => {
       return (
-        <div id="listCon2" className='listCon' key ={i}>
+        <div id="" className='listCon' key ={i}>
           <div id="rd2" className='rowDisp'>
           <h3 className='searchTitle'>#{i+1+this.state.page}</h3>
           <h3 className="searchTitle">{post.item}</h3>

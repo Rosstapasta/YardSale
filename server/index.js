@@ -245,6 +245,28 @@ app.get('/landing', (req, res, next) => {
     })
 })
 
+app.put('/updatep', (req, res, next) => {
+    const { fname, lname, phone} = req.body;
+    app.get('db').update_profile(fname, lname, phone, req.user.id).then( resp => {
+        res.status(200).send("updated")
+    })
+})
+
+
+app.get('/getuser', (req, res, next) => {
+
+    app.get('db').find_session_user(req.user.id).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+app.get('/getlikecount', (req, res, next) => {
+        console.log(req.query.itemId, "itemId from server like count")
+    app.get('db').likes_count(req.query.itemId).then( resp => {
+        res.status(200).send(resp)
+    })
+
+})
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )

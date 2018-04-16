@@ -88,6 +88,8 @@
     position: relative;
     bottom: 10px;
     font-family: 'Stylish', sans-serif;
+    cursor: pointer;
+    
 }
 
 .GarageSale{
@@ -241,7 +243,7 @@
     /* background-color: #C6DBF0; */
     /* width: 100vw; */
     height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - 150px);
     width: 100%;
     /* padding-bottom: 90px; */
     
@@ -253,6 +255,10 @@
     background-repeat: no-repeat;
 
       
+}
+
+.profileText{
+    /* margin-left: 9px; */
 }
 
 /* #Clothing{
@@ -300,6 +306,13 @@
     align-items: center;
 }
 
+.profile2{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .listings{
     display: flex;
     justify-content: center;
@@ -310,14 +323,26 @@
     border-radius: 20px;
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 5px 10px 6px 0px rgba(0,0,0,.2);
     font-family: 'Stylish', sans-serif;
-
     font-size: 2rem;
+    cursor: pointer;
+}
+
+#rd222{
+    background-color: rgb(167, 167, 167);
 }
 
 
-@media(min-width: 620px){
+@media(min-width: 700px){
     .profile1{
         display: none;
+    }
+    .profile2{
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 150px);
+        justify-content: space-around;
+        align-items: center;
+
     }
 }
 
@@ -446,6 +471,14 @@
     
 }
 
+.listingsFlex{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 /* .listOuter{
     max-height: 400px;
 } */
@@ -456,7 +489,7 @@
     /* box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 0 6px 6px 0 rgba(0,0,0,.2); */
     border-radius: 1px;
     position: relative;
-    /* transform: rotate(-1deg); */
+    top: 10px;
 
 }
 
@@ -505,7 +538,7 @@
 
 #mylistings{
     margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-size: 2.4rem;
     position: relative;
     top: 12px;
@@ -519,7 +552,7 @@
 .listTitle{
     letter-spacing: 3px;
     position: relative;
-    font-family: 'Permanent Marker', 'cursive';
+    font-family: 'Stylish', 'cursive';
     letter-spacing: 2px;
     max-height: 45px;
     bottom: 55px;
@@ -530,8 +563,12 @@
     flex-direction: row;
     justify-content: space-around;
     position: relative;
-    width: 100%;
+    width: 100vw;
     
+}
+
+#rd3{
+    width: 50vw;
 }
 
 .pin{
@@ -690,6 +727,62 @@
 
 /* search */
 
+.searchRow{
+   height: auto;
+   width: auto;
+   display: flex;
+   flex-direction: row;
+
+}
+
+.rD2{
+    display: none;
+    flex-direction: column;
+    width: 340px;
+    height: auto;
+    background-color: rgba(250, 249, 249, 0.911);
+    
+}
+
+.refineDesk{
+   position: fixed;
+   display: flex;
+   flex-direction: column;
+   /* justify-content: space-around; */
+   top: 150px;
+   padding-left: 15px;
+   height: 100vh;
+   width: 270px;
+   background-color: rgb(250, 249, 249);
+   box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 3px 9px 6px 0px rgba(0,0,0,.3);
+   z-index: 4;
+
+}
+
+.sparamsText{
+    font-size: 2rem;
+    color: rgb(27, 27, 27);
+    letter-spacing: 6px;
+    position: relative;
+    
+    font-family: 'Stylish', sans-serif;
+    margin-bottom: 15px;
+}
+
+.searchInput2{
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid  grey;
+    font-size: 1.8rem;
+
+}
+
+#search44{
+    top: 0px;
+    margin-top: 40px;
+}
+
 .searchTitle{
     margin-top: 40px; 
 }
@@ -780,7 +873,12 @@
    box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 0 6px 6px 0 rgba(0,0,0,.2);
 }
 
-#pol{
+.pol{
+    position: relative;
+    width: auto;
+    height: auto;
+    bottom: 80px;
+
     margin-top: 30px;
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -788,6 +886,17 @@
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 3px 9px 6px 0px rgba(0,0,0,.3);
     transform: rotate(0deg);
     bottom: 0px;
+}
+
+#pol2{
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    padding-bottom: 40px;
+    box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 3px 9px 6px 0px rgba(0,0,0,.3);
+    transform: rotate(0deg);
+    bottom: 0px;
+
 }
 
 .searchInput{
@@ -803,6 +912,8 @@
     width: 55%;
     margin-left: 15px;
 }
+
+
 
 .searchT{
     padding-left: 30px;
@@ -830,6 +941,13 @@
 
 .lvText{
     height: 15px;
+    font-family: 'Stylish';
+    font-size: 2.5rem;
+}
+
+.lvText2{
+    height: 15px;
+    font-size: 1.5rem;
 }
 
 .lvtop{
@@ -845,13 +963,13 @@
 .lvDes{
     position: relative;
     margin: 15px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 40px;
-    background-color: white;
-    box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 5px 10px 6px 0px rgba(0,0,0,.2);
+    background-color: rgb(250, 249, 249);    box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 5px 10px 6px 0px rgba(0,0,0,.2);
     border-radius: 8px;
     width: 80%;
-    height: 200px;
+    min-height: 200px;
+    height: auto;
     padding: 15px;
 }
 
@@ -928,6 +1046,7 @@
 }
 
 #sbb{
+    display: flex;
     margin-left: 4px;
     bottom: 15px;
     width: auto;
@@ -935,8 +1054,11 @@
 }
 
 .heart{
+    position: fixed;
     margin-top: 20px;
-    width: 50px;
+    width: 40px;
+    top: -12px;
+    
 }
 
 .landho{
@@ -984,14 +1106,23 @@
 }
 
 
-/* #listCon2{
-    margin-left: 20px;
-    margin-right: 20px;
-} */
 
 .lrArrows{
     position: relative;
     height: 20px;
+}
+
+#viewDesk{
+    display: none
+}
+
+#viewMobile{
+    display: flex;
+}
+
+.viewDire{
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -1002,5 +1133,40 @@
 
     .deskDisp{
         display: flex;
+    }
+
+    .rD2{
+        display: flex;
+    }
+
+    #sbb{
+        display: none;
+    }
+    
+    #viewDesk{
+        display: flex;
+        justify-content: center;
+    }
+
+    #viewMobile{
+        display: none;
+    }
+
+    .viewDire{
+        flex-direction: row;
+    }
+}
+
+@media(min-width: 700px){
+    #listCon2{
+        width: 400px;
+        max-width: 400px;
+        height: 350px;
+        justify-content: space-around;
+        z-index: 5;
+    }
+
+    #editImg2{
+        width: 500px;
     }
 }

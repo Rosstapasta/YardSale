@@ -14,13 +14,26 @@ class Item extends Component {
       sender: 0,
       message: '',
       like: [{item_id: 0}],
-      user: []
+      user: [],
+      likeCount: [{count: 0}]
 
     }
+
     this.sendText = this.sendText.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.like = this.like.bind(this);
     this.unLike = this.unLike.bind(this);
+    this.numOfLikes = this.numOfLikes.bind(this);
+
+  }
+
+  numOfLikes(){
+    const { itemId } = this.props.match.params;
+
+    axios.get(`/getlikecount?itemId=${itemId}`).then( res => {
+      this.setState({likeCount: res.data})
+    })
+
   }
 
 
@@ -43,6 +56,8 @@ class Item extends Component {
         this.setState({like: res.data })
       }
     })
+
+    this.numOfLikes();
   }
 
 
@@ -54,8 +69,10 @@ class Item extends Component {
     newLike++;
 
     axios.post('/newlike', {itemId, newLike} ).then( res => {
-      this.setState({ like: res.data })
-    }, console.log(this.state.like, "inside like method"));
+      this.setState({ like: res.data }, this.numOfLikes())
+    });
+
+
 
   }
 
@@ -68,8 +85,8 @@ class Item extends Component {
     newLike--;
 
     axios.delete(`/unlike?itemId=${itemId}&newLike=${newLike}`).then( res => {
-      this.setState({ like: [{item_id: 0}] })
-    }, console.log(this.state.like, "inside like method"));
+      this.setState({ like: [{item_id: 0}, this.numOfLikes()] })
+    });
 
   }
 
@@ -88,35 +105,64 @@ class Item extends Component {
 
   render() {
 
-    console.log(this.state.item, this.state.user, "likes")
+    console.log(this.state.likeCount, "likes")
     return (
       <div className="compBody">
 
-        <div className='lvtop'>
-        <h1 className='lvText'>{this.state.item.item}</h1>
-        <h1 className='lvText'>${this.state.item.price}</h1>
-        </div>
-
-        <div id='pol' className='imgwithimg'>
-            <img className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.item.img}.jpeg`} />
+        <div id='viewMobile' className='lvtop'>
+          <h1 className='lvText'>{this.state.item.item}</h1>
+          <h1 className='lvText2'>${this.state.item.price}</h1>
         </div>
 
 
+        <div className="viewDire">
 
-        {this.state.user[0] ? <div>{
-    
-        <div>
-          {this.state.like[0].item_id !== 0 ? <div>{
-            <img className="heart" src={heart} onClick={ () => this.unLike()}/>
-          }</div> : 
-          <img className="heart" src={heartE} onClick={() => this.like()}/>
-          }
+
+          <div id='viewDesk' className='lvtop'>
+            <h1 className='lvText'>{this.state.item.item}</h1>
+            <h1 className='lvText2'>${this.state.item.price}</h1>
+
+            <div className="rowDisp">
+              <h1 className='lvText'>{`${this.state.item.city}`}</h1>
+              <h1 className='lvText'>{`, ${this.state.item.stateusa}`}</h1>
+            </div>
+
+            <h1 className='lvText2'>likes {this.state.likeCount[0].count}</h1>
+          </div>
+
+          
+
+
+          <div id='' className='pol'>
+              <img id='editImg2' className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.item.img}.jpeg`} />
+          
+
+            {this.state.user[0] ? <div>{
+      
+            <div>
+              {this.state.like[0].item_id !== 0 ? <div>{
+                <img className="heart" src={heart} onClick={ () => this.unLike()}/>
+              }</div> : 
+              <img className="heart" src={heartE} onClick={() => this.like()}/>
+              }
+              </div>
+            
+              }</div> :  
+
+              <div/>
+            }
+
+          </div>
+
         </div>
-        
-        }</div> :  
 
-        <div/>
-        }
+
+        <div id='viewMobile' className='rowDisp'>
+          <h1 className='lvText'>{`${this.state.item.city}`}</h1>
+          
+          <h1 className='lvText'>{`, ${this.state.item.stateusa}`}</h1>
+        </div>
+
 
 
 

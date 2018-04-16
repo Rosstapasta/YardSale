@@ -50,21 +50,17 @@ class MyListings extends Component {
 
       return (
         <div className="listOuter">
+
             <div key={i} className="listBody">
-            {/* <img className='paper' src={paper}/> */}
 
               <div>
                 <div id='rotate' className="pin"/>
               <h2 className="listTitle">{lst.item}</h2>
-                {/* <img className='pin' src={pin} alt='pin'/> */}
+                
               </div>
 
               <div className='imgwithimg'>
 
-        {/* <img id='t1' className='tape' src={ tape } alt='tape'/>
-        <img id='t2' className='tape2' src={ tape } alt='tape'/>
-        <img id='t3' className='tape' src={ tape } alt='tape'/>
-        <img id='t4' className='tape2' src={ tape } alt='tape'/> */}
               <img className="listImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${lst.img}.jpeg`}/>
               </div>
 
@@ -94,7 +90,9 @@ class MyListings extends Component {
 
         <h1 id='mylistings' className='searchTitle2'>My Listings</h1>
 
+        <div className='listingsFlex'>
         {listings}
+        </div>
 
         { this.state.delete ? <div>{
 

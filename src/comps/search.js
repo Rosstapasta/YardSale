@@ -92,7 +92,7 @@ class Search extends Component {
 
     var listing = posts.map( (post, i) => {
       return (
-        <div className='listCon' key ={i}>
+        <div id='listCon2' className='listCon' key ={i}>
           <div id="rd2" className='rowDisp'>
           <h3 className="searchTitle">{post.item}</h3>
           <h3 className='searchTitle'>${post.price}</h3>
@@ -112,6 +112,31 @@ class Search extends Component {
     })
 
     return (
+      <div className='searchRow'>
+        <div className='rD2'>
+        <div className='refineDesk'>
+          
+
+          <div className=''>
+              <h3 className='sparamsText'>City</h3>
+              <input value={ this.state.city2 }className='searchInput2' onChange={(e)=> this.handleInputs('city2', e.target.value)}/>
+            </div>
+
+            <div className=''>
+              <h3 id='' className='sparamsText'>State</h3>
+              <select id='' onChange={this.handleChange} value={this.state.stateUSA2} className='searchInput2'>
+                <option value='Utah'>Utah</option>
+                <option value="California">California</option>
+              </select>
+            </div>
+
+            <div className=''><h3 className='sparamsText'>Max Price</h3><input value={ this.state.price2 }className='searchInput2' onChange={(e) => this.handleInputs('price2', e.target.value)}/>
+            </div>
+
+            <button id='search44' className='loginButton' onClick={() => this.searchFilter()}>Search</button>
+
+        </div>
+        </div>
       <div id={`${this.props.match.params.cat}`} className="compBody">
         
 
@@ -154,6 +179,7 @@ class Search extends Component {
         <div></div>
         
        
+      </div>
       </div>
     );
   }
