@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import pin from './media/pin2.png';
+// import pin from './media/pin2.png';
 
 export default class Edit extends Component{
 
@@ -33,7 +33,7 @@ export default class Edit extends Component{
     
   render(){
       console.log(this.state, "editlisting")
-      const { listing } = this.state;
+    //   const { listing } = this.state;
     return(
         <div className="compBody">
 
@@ -46,7 +46,7 @@ export default class Edit extends Component{
             {/* <img id='pin3' className="pinp1" src={pin} alt='pin'/>
             <img id='pin4' className='pinp2' src={pin} alt='pinp2'/> */}
 
-            <img className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.image}.jpeg`} />
+            <img className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.image}.jpeg`} alt='img'/>
             </div>
 
             <h2 className='editText'>Price</h2>

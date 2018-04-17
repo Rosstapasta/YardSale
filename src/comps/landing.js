@@ -27,14 +27,18 @@ class Landing extends Component {
 
 
   forward3(){
-    if(this.state.page+3 < this.state.listings.length){
-      this.setState({page: this.state.page+=3, pageEnd: this.state.pageEnd+=3})
+    var pageP = this.state.page;
+    var pageE = this.state.pageEnd;
+    if(pageP+3 < this.state.listings.length){
+      this.setState({page: pageP+=3, pageEnd: pageE+=3})
     }
   }
 
   back3(){
+    var pageP = this.state.page;
+    var pageE = this.state.pageEnd;
     if(this.state.page > 0){
-      this.setState({page: this.state.page-=3, pageEnd: this.state.pageEnd-=3})
+      this.setState({page: pageP-=3, pageEnd: pageE-=3})
     }
   }
 
@@ -54,7 +58,7 @@ class Landing extends Component {
           <h3 className='searchTitle'>${post.price}</h3>
           </div>
 
-          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} />
+          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} alt='img'/>
 
           <div className='rowDisp'>
           <h3>{post.city}</h3>
@@ -76,7 +80,7 @@ class Landing extends Component {
           <h3 className='searchTitle'>${post.price}</h3>
           </div>
 
-          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} />
+          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} alt='img'/>
 
           <div className='rowDisp'>
           <h3>{post.city}</h3>

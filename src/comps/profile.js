@@ -12,7 +12,8 @@ class Profile extends Component {
     this.state ={
       fname: '',
       lname: '',
-      phone: 0
+      phone: 0,
+      fname2: '...loading'
     }
     this.handleChange = this.handleChange.bind(this);
     this.updateP = this.updateP.bind(this);
@@ -24,14 +25,14 @@ class Profile extends Component {
     this.props.getUser(history);
 
     axios.get('/getuser').then( res => {
-      this.setState({fname: res.data[0].first_name, lname: res.data[0].last_name, phone: res.data[0].phone})
+      this.setState({fname2: res.data[0].first_name, fname: res.data[0].first_name, lname: res.data[0].last_name, phone: res.data[0].phone})
     })
   }
 
   updateP(){
     const { fname, lname, phone} = this.state;
     axios.put('/updatep', {fname, lname, phone}).then( res => {
-      res.data
+      this.setState({ fname2: fname })
     })
   }
 
@@ -48,21 +49,40 @@ class Profile extends Component {
           <div className='profile1'>
 
               <div className="placeholder"></div>
-
-            <div className="pInputRow">
-              <h2 style={{ fontFamily: 'Permanent Marker'}}>Phone</h2>
               <div className="placeholder"></div>
-              <input className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
+              
+              <div id='rd222' className='rowDisp2'>
+              <h2 className='profileText'>Welcome {this.state.fname2}</h2>
             </div>
 
-            <div className="pInputRow">
-              <h2 style={{ fontFamily: 'Permanent Marker'}}>Name</h2>
               <div className="placeholder"></div>
-              <input className="profileInput" onChange={ (e) => this.handleChange('name', e.target.value)}/>
-            </div>
+
+              <div className="pInputRow">
+                <h2 className='profileText' style={{ fontFamily: 'Stylish'}}> First Name</h2>
+                <div className="placeholder"></div>
+                <input value={this.state.fname}className="profileInput" onChange={ (e) => this.handleChange('fname', e.target.value)}/>
+              </div>
+
+              <div className="pInputRow">
+                <h2 className='profileText' style={{ fontFamily: 'Stylish'}}>Last Name</h2>
+                <div className="placeholder"></div>
+                <input value={this.state.lname} className="profileInput" onChange={ (e) => this.handleChange('lname', e.target.value)}/>
+              </div>
+
+                
+
+              <div className="pInputRow">
+                <h2 className='profileText' style={{ fontFamily: 'Stylish'}}>Phone</h2>
+                <div className="placeholder"></div>
+                <div className='placeholder'></div>
+                <div className='placeholder'></div>
+                <input value={this.state.phone} className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
+              </div>
+
 
               <div className='placeholder'></div>
-            <div className='loginButton'>Update Profile</div>
+        
+              <div className='loginButton' onClick={() => this.updateP()}>Update Profile</div>
 
               <div className="placeholder"></div>
 
@@ -71,6 +91,10 @@ class Profile extends Component {
               <div className="placeholder"></div>
 
             <Link style={{ textDecoration: 'none' }} to='/mylistings'><button className="listings">My Listings</button></Link>
+
+              <div className="placeholder"></div>
+
+            <Link style={{ textDecoration: 'none' }} to='/mylistings'><button className="listings">Favorites</button></Link>
 
 
               <div className="placeholder"></div>
@@ -81,6 +105,10 @@ class Profile extends Component {
 
           <div className='profile2'>
           <div className="placeholder"></div>
+
+            <div id='rd222' className='rowDisp2'>
+              <h2 id='pt22' className='profileText'>Welcome {this.state.fname2}</h2>
+            </div>
           
              <div className="placeholder"></div>
             <div className='rowDisp2'>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../ducks/reducer';
 import axios from 'axios';
-import pin from './media/pin2.png';
+// import pin from './media/pin2.png';
 // import paper from './media/paper.png';
 // import tape from './media/tape.png';
 import { Link } from 'react-router-dom';
@@ -49,9 +49,9 @@ class MyListings extends Component {
     var listings = this.state.userL.map( (lst, i) => {
 
       return (
-        <div className="listOuter">
+        <div key={i} className="listOuter">
 
-            <div key={i} className="listBody">
+            <div className="listBody">
 
               <div>
                 <div id='rotate' className="pin"/>
@@ -61,7 +61,7 @@ class MyListings extends Component {
 
               <div className='imgwithimg'>
 
-              <img className="listImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${lst.img}.jpeg`}/>
+              <img className="listImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${lst.img}.jpeg`} alt='img'/>
               </div>
 
 

@@ -313,6 +313,11 @@
     align-items: center;
 }
 
+#pt22{
+    position: relative;
+    right: 29%;
+}
+
 .listings{
     display: flex;
     justify-content: center;
@@ -886,6 +891,7 @@
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 3px 9px 6px 0px rgba(0,0,0,.3);
     transform: rotate(0deg);
     bottom: 0px;
+    z-index: 2
 }
 
 #pol2{
@@ -1059,6 +1065,7 @@
     width: 40px;
     top: -12px;
     
+    
 }
 
 .landho{
@@ -1155,6 +1162,13 @@
     .viewDire{
         flex-direction: row;
     }
+}
+
+.hideb{
+    position: relative;
+    z-index: -1;
+    width: 0px;
+    height: 0px;
 }
 
 @media(min-width: 700px){

@@ -15,7 +15,8 @@ class Item extends Component {
       message: '',
       like: [{item_id: 0}],
       user: [],
-      likeCount: [{count: 0}]
+      likeCount: [{count: 0}],
+      buttonSwitch: true
 
     }
 
@@ -33,7 +34,6 @@ class Item extends Component {
     axios.get(`/getlikecount?itemId=${itemId}`).then( res => {
       this.setState({likeCount: res.data})
     })
-
   }
 
 
@@ -53,7 +53,7 @@ class Item extends Component {
 
       if(res.data[0]){
      
-        this.setState({like: res.data })
+        this.setState({like: res.data, buttonSwitch: false })
       }
     })
 
@@ -62,32 +62,38 @@ class Item extends Component {
 
 
   like(){
-
     const { itemId } = this.props.match.params;
     const { likes } = this.state.item;
     var newLike = likes;
     newLike++;
-
-    axios.post('/newlike', {itemId, newLike} ).then( res => {
-      this.setState({ like: res.data }, this.numOfLikes())
-    });
-
+    
+    if(this.state.buttonSwitch === true){
+      axios.post('/newlike', {itemId, newLike} ).then( res => {
+        this.setState({ like: res.data }, this.numOfLikes())
+      });
+      
+    }
+    
+    this.setState({buttonSwitch: false});
 
 
   }
 
   unLike(){
-
     const { itemId } = this.props.match.params;
-
+    
     const { likes } = this.state.item;
     var newLike = likes;
     newLike--;
-
-    axios.delete(`/unlike?itemId=${itemId}&newLike=${newLike}`).then( res => {
-      this.setState({ like: [{item_id: 0}, this.numOfLikes()] })
-    });
-
+    
+    if(this.state.buttonSwitch === false){
+      axios.delete(`/unlike?itemId=${itemId}&newLike=${newLike}`).then( res => {
+        this.setState({ like: [{item_id: 0}, this.numOfLikes()] })
+      });
+      
+    }
+    
+    this.setState({buttonSwitch: true});
   }
 
 
@@ -111,7 +117,7 @@ class Item extends Component {
 
         <div id='viewMobile' className='lvtop'>
           <h1 className='lvText'>{this.state.item.item}</h1>
-          <h1 className='lvText2'>${this.state.item.price}</h1>
+          <h1 className='lvText2'>${this.state.item.price}</h1><h1 className='lvText2'>likes {this.state.likeCount[0].count}</h1>
         </div>
 
 
@@ -134,16 +140,16 @@ class Item extends Component {
 
 
           <div id='' className='pol'>
-              <img id='editImg2' className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.item.img}.jpeg`} />
+              <img id='editImg2' className='editImg' src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${this.state.item.img}.jpeg`} alt='img'/>
           
 
             {this.state.user[0] ? <div>{
       
             <div>
               {this.state.like[0].item_id !== 0 ? <div>{
-                <img className="heart" src={heart} onClick={ () => this.unLike()}/>
+                <img onClick={ () => this.unLike()} className="heart" src={heart} alt='img'/>
               }</div> : 
-              <img className="heart" src={heartE} onClick={() => this.like()}/>
+              <img onClick={() => this.like()}  className="heart" src={heartE} alt='img'></img>
               }
               </div>
             

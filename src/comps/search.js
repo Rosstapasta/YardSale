@@ -98,7 +98,7 @@ class Search extends Component {
           <h3 className='searchTitle'>${post.price}</h3>
           </div>
 
-          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} />
+          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} alt='img'/>
 
           <div className='rowDisp'>
           <h3>{post.city}</h3>
