@@ -1004,7 +1004,22 @@
     border: none;
     font-size: 1.5rem;
     border-radius: 5px;
+    position: relative;
+    left: 70px;
+    right: 0px;
+    bottom: 20px;
 
+}
+
+.lvb2{
+    height: auto;
+    width: 170px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    margin-top: 40px;
 }
 
 .textSeller{
@@ -1135,16 +1150,14 @@
     align-items: center;
 }
 
-
-
-
 .lrArrows{
     position: relative;
     height: 20px;
 }
 
 #viewDesk{
-    display: none
+    display: none;
+
 }
 
 #viewMobile{
@@ -1177,6 +1190,7 @@
     #viewDesk{
         display: flex;
         justify-content: center;
+        margin-left: 20px;
     }
 
     #viewMobile{
@@ -1185,6 +1199,12 @@
 
     .viewDire{
         flex-direction: row;
+    }
+}
+
+@media(max-width: 999px){
+    .deskDisp{
+        max-width: 640px;
     }
 }
 

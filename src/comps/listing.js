@@ -123,7 +123,7 @@ class Item extends Component {
 
         <div className="viewDire">
 
-
+          
           <div id='viewDesk' className='lvtop'>
             <h1 className='lvText'>{this.state.item.item}</h1>
             <h1 className='lvText2'>${this.state.item.price}</h1>
@@ -134,6 +134,9 @@ class Item extends Component {
             </div>
 
             <h1 className='lvText2'>likes {this.state.likeCount[0].count}</h1>
+
+            <button className="lvb2" onClick={() => this.setState({contactB: true})}>contact seller</button>
+
           </div>
 
           
@@ -174,8 +177,11 @@ class Item extends Component {
 
 
         <h2 className='lvDes'>{this.state.item.descript}</h2>
+        
 
+        <div id='viewMobile' className='lvtop'>
         <button className="lvbutton" onClick={() => this.setState({contactB: true})}>contact seller</button>
+        </div>
 
         { this.state.contactB ? <div>{
           <div id='dc2' className='deleteConfirm'>

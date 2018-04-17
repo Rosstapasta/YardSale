@@ -13,51 +13,48 @@ class Landing extends Component {
 
     this.state = {
       listings: [],
-      page: 0,
-      pageEnd: 3
     }
-    this.forward3 = this.forward3.bind(this);
-    this.back3 = this.back3.bind(this);
   }
 
   componentWillMount(){
-    window.scrollTo(0, 0);
 
+    window.scrollTo(0, 0);
     axios.get('/landing').then( res => {
       this.setState({ listings: res.data })
     })
   }
 
-
-  forward3(){
-    var pageP = this.state.page;
-    var pageE = this.state.pageEnd;
-    if(pageP+3 < this.state.listings.length){
-      this.setState({page: pageP+=3, pageEnd: pageE+=3})
-    }
-  }
-
-  back3(){
-    var pageP = this.state.page;
-    var pageE = this.state.pageEnd;
-    if(this.state.page > 0){
-      this.setState({page: pageP-=3, pageEnd: pageE-=3})
-    }
-  }
-
   render() {
-    //slick
+
     var settings = {
       dots: true,
       infinite: true,
-      speed: 1200,
+      speed: 1500,
       slidesToShow: 3,
       slidesToScroll: 3,
       autoplay: true,
-      
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 999,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        }
+      ]
     };
 
-    const { listings, page, pageEnd } = this.state;
+    const { listings } = this.state;
 
     var listing = this.state.listings.map( (post, i) => {
       return (
