@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import right from './media/right.png';
 import left from './media/left.png';
 
+//slick
+import Slider from "react-slick";
+
 class Landing extends Component {
   constructor(){
     super()
@@ -43,36 +46,22 @@ class Landing extends Component {
   }
 
   render() {
-    console.log(this.state.listings)
+    //slick
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 1200,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      autoplay: true,
+      
+    };
 
     const { listings, page, pageEnd } = this.state;
-    var newListings = listings.slice(page, pageEnd);
-
-
-    var listing2 = newListings.map( (post, i) => {
-      return (
-        <div id="" className='listCon' key ={i}>
-          <div id="rd2" className='rowDisp'>
-          <h3 className='searchTitle'>#{i+1+this.state.page}</h3>
-          <h3 className="searchTitle">{post.item}</h3>
-          <h3 className='searchTitle'>${post.price}</h3>
-          </div>
-
-          <img className="searchImg" src={`https://s3-us-west-2.amazonaws.com/yardsaleapp333/${post.img}.jpeg`} alt='img'/>
-
-          <div className='rowDisp'>
-          <h3>{post.city}</h3>
-          <h3>{`, ${post.stateusa}`}</h3>
-
-          <Link to={`/listing/${post.item_id}`}><button id="searchViewB" className='lstButton'>View</button></Link>
-          </div>
-
-        </div>
-      )
-    })
 
     var listing = this.state.listings.map( (post, i) => {
       return (
+        <div>
         <div className='listCon' key ={i}>
           <div id="rd2" className='rowDisp'>
           <h3 className='searchTitle'>#{i+=1}</h3>
@@ -90,16 +79,12 @@ class Landing extends Component {
           </div>
 
         </div>
+        </div>
       )
     })
 
     return (
       <div className="compBody">
-
-        {/* <div className='landho'>
-        <h2 className='x'>X</h2>
-        <h2 className='landingText'>Thank you for using Yard Sale! Below you will find the most popular listings. </h2>
-        </div> */}
 
         <h1 id='mylistings' className='searchTitle2'>Featured Items</h1>
         
@@ -108,11 +93,11 @@ class Landing extends Component {
         </div>
 
         <div className='deskDisp'>
-        <img onClick={ () => this.back3()} className='lrArrows'src={ left } alt='right'/>
-          {listing2}
-          <img onClick={() => this.forward3()} className='lrArrows'src={ right } alt='right'/>
+        <Slider {...settings} className='deskDisp2'>
+          {listing}
+        </Slider>
         </div>
-       
+
       </div>
     );
   }

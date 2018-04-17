@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Stylish");
 @import url("https://fonts.googleapis.com/css?family=Stylish");
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 /* navbar elements */
 
 .topLayer{
@@ -549,6 +552,14 @@
     top: 12px;
 }
 
+#mylistings2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 2.4rem;
+    position: relative;
+    top: 12px;
+}
+
 .borderunder{
     width: 60%;
     border-bottom: 2px solid black;
@@ -974,6 +985,7 @@
     background-color: rgb(250, 249, 249);    box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 5px 10px 6px 0px rgba(0,0,0,.2);
     border-radius: 8px;
     width: 80%;
+    max-width: 950px;
     min-height: 200px;
     height: auto;
     padding: 15px;
@@ -1104,13 +1116,25 @@
 
 .deskDisp{
     position: relative;
+    top: -20px;
+    display: none;
+    width: 90%;
+    max-width: 940px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.deskDisp2{
+    position: relative;
     top: 30px;
     display: none;
     width: 100%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
+
 
 
 
