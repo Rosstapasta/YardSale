@@ -99,7 +99,7 @@ class Profile extends Component {
 
               <div className="placeholder"></div>
 
-              <a href='http://localhost:3035/auth/logout' style={{textDecoration: 'none', color: 'white'}}><button className="loginButton">Logout</button></a>
+              <a href={ process.env.REACT_APP_LOGOUT } style={{textDecoration: 'none', color: 'white'}}><button className="loginButton">Logout</button></a>
 
           </div>
 
@@ -155,7 +155,7 @@ class Profile extends Component {
             <div id='rd3' className='rowDisp2'>
               <div className='loginButton' onClick={() => this.updateP()}>Update Profile</div>
 
-              <a href='http://localhost:3035/auth/logout' style={{textDecoration: 'none', color: 'white'}}><button className="loginButton">Logout</button></a>
+              <a href={ process.env.REACT_APP_LOGOUT } style={{textDecoration: 'none', color: 'white'}}><button className="loginButton">Logout</button></a>
 
             </div>
 

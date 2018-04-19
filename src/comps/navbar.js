@@ -32,7 +32,7 @@ class Navbar extends Component {
             <div id="topE1" className='topEleme'>
 
               {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login22" className='loginButton'>Profile</div></Link>}</div> :
-              <a style={{ textDecoration: 'none' }} href='http://localhost:3035/auth' ><div id="login22" className='loginButton'>login/register</div></a>}
+              <a style={{ textDecoration: 'none' }} href={ process.env.REACT_APP_LOGIN } ><div id="login22" className='loginButton'>login/register</div></a>}
 
               <Link to='/' style={{ textDecoration: 'none' }}><h2 id='gs' className="GarageSale">Yard Sale</h2></Link>
               
@@ -62,7 +62,7 @@ class Navbar extends Component {
               <div id="bm2" className="buttonsMobile"> 
 
                 {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login1" className='loginButton'>Profile</div></Link>}</div> :
-                <a style={{ textDecoration: 'none' }} href='http://localhost:3035/auth' ><div id="login1" className='loginButton'>login/register</div></a>}
+                <a style={{ textDecoration: 'none' }} href={ process.env.REACT_APP_LOGIN } ><div id="login1" className='loginButton'>login/register</div></a>}
 
                 <div className="placeholder"></div>
 

@@ -38,6 +38,8 @@ require('dotenv').config();
     
 const client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 const app = express();
+//new
+app.use( express.static( `${__dirname}/../build` ) );
 
 const {
     CONNECTION_STRING,
@@ -97,14 +99,14 @@ app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
     
     //changed redirect from 3035 to 3000 might have to change back when run build
-    successRedirect: 'http://localhost:3000/profile/',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
 }))
 
 app.get('/auth/logout', (req,res) => {
     
     req.logOut();
-    res.redirect(`https://erix-domain.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost:3000&client_id=${CLIENT_ID}`)
+    res.redirect(`https://erix-domain.auth0.com/v2/logout?returnTo=http%3A%2F%2F${process.env.LOCAL_HOST}&client_id=${CLIENT_ID}`)
 })
 
 
