@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import right from './media/right.png';
-import left from './media/left.png';
-
-//slick
 import Slider from "react-slick";
 
 class Landing extends Component {
@@ -54,7 +50,7 @@ class Landing extends Component {
       ]
     };
 
-    const { listings } = this.state;
+    // const { listings } = this.state;
 
     var listing = this.state.listings.map( (post, i) => {
       return (

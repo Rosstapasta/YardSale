@@ -323,7 +323,6 @@
         height: calc(100vh - 150px);
         justify-content: space-around;
         align-items: center;
-
     }
     .imgPreview{
         max-height: 350px;
@@ -339,10 +338,6 @@
 
 
 /* addlisting */
-
-
-
-
 .fileb64{
     display: flex;
     flex-direction: column;

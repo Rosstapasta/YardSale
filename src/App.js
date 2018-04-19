@@ -21,7 +21,7 @@ class App extends Component {
       <div className='app3'>
         
         <div style={{ position: 'relative', zIndex: "2" }}>
-        <Navbar/>
+          <Navbar/>
         </div>
 
           <div style={{ position: 'relative', zIndex: "1" }}>
