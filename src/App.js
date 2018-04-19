@@ -11,6 +11,7 @@ import Wiz1 from './comps/wiz/wiz1';
 import Wiz2 from './comps/wiz/wiz2';
 import Wiz3 from './comps/wiz/wiz3';
 import Edit from './comps/editListing';
+import Favorites from './comps/favorites';
 import './App.css';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path='/wiz2' component={ Wiz2}/> 
             <Route path='/wiz3' component={ Wiz3}/>
             <Route path='/edit/:listId' component={ Edit }/>
+            <Route path='/myfavorites' component={ Favorites }/>
           </Switch>
           </div> 
       </div> 

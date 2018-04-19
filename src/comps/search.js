@@ -86,6 +86,14 @@ class Search extends Component {
       this.getCat();
       this.setState({cat: this.props.match.params.cat})
     }
+
+    var catDisplay = '';
+
+    if(this.props.match.params.cat === 'none'){
+      catDisplay = 'Search'
+    }else{ 
+      catDisplay = this.props.match.params.cat
+    }
     
     
     var posts = this.state.posts;
@@ -137,11 +145,16 @@ class Search extends Component {
 
         </div>
         </div>
+
       <div id={`${this.props.match.params.cat}`} className="compBody">
         
 
-        <div className='sRow'>
-        <h2 className='searchTitle2'>{this.props.match.params.cat}</h2>
+        <div id='titlecon2' className='sRow'>
+
+        
+        <h2 className='searchTitle2'>{catDisplay}</h2>
+        
+
         <button id='sbb' className='searchButton' onClick={() => this.setState({refine: true})}>Refine Search</button>
         </div>
 

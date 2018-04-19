@@ -51,7 +51,7 @@ class Profile extends Component {
               <div className="placeholder"></div>
               <div className="placeholder"></div>
               
-              <div id='rd222' className='rowDisp2'>
+              <div id='rd2223' className='rowDisp2'>
               <h2 className='profileText'>Welcome {this.state.fname2}</h2>
             </div>
 
@@ -60,13 +60,13 @@ class Profile extends Component {
               <div className="pInputRow">
                 <h2 className='profileText' style={{ fontFamily: 'Stylish'}}> First Name</h2>
                 <div className="placeholder"></div>
-                <input value={this.state.fname}className="profileInput" onChange={ (e) => this.handleChange('fname', e.target.value)}/>
+                <input value={this.state.fname} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('fname', e.target.value)}/>
               </div>
 
               <div className="pInputRow">
                 <h2 className='profileText' style={{ fontFamily: 'Stylish'}}>Last Name</h2>
                 <div className="placeholder"></div>
-                <input value={this.state.lname} className="profileInput" onChange={ (e) => this.handleChange('lname', e.target.value)}/>
+                <input value={this.state.lname} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('lname', e.target.value)}/>
               </div>
 
                 
@@ -76,7 +76,7 @@ class Profile extends Component {
                 <div className="placeholder"></div>
                 <div className='placeholder'></div>
                 <div className='placeholder'></div>
-                <input value={this.state.phone} className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
+                <input value={this.state.phone} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
               </div>
 
 
@@ -94,7 +94,7 @@ class Profile extends Component {
 
               <div className="placeholder"></div>
 
-            <Link style={{ textDecoration: 'none' }} to='/mylistings'><button className="listings">Favorites</button></Link>
+            <Link style={{ textDecoration: 'none' }} to='/myfavorites'><button className="listings">Favorites</button></Link>
 
 
               <div className="placeholder"></div>
@@ -121,7 +121,7 @@ class Profile extends Component {
 
               
 
-            <Link style={{ textDecoration: 'none' }} to='/mylistings'><button className="listings">Favorites</button></Link>
+            <Link style={{ textDecoration: 'none' }} to='/myfavorites'><button className="listings">Favorites</button></Link>
             <div className="placeholder"></div>
             </div>
                 <div className="placeholder"></div>
@@ -132,19 +132,19 @@ class Profile extends Component {
               <div className="pInputRow">
                 <h2 className='profileText' style={{ fontFamily: 'Stylish'}}> First Name</h2>
                 <div className="placeholder"></div>
-                <input value={this.state.fname}className="profileInput" onChange={ (e) => this.handleChange('fname', e.target.value)}/>
+                <input value={this.state.fname} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('fname', e.target.value)}/>
               </div>
 
               <div className="pInputRow">
                 <h2 className='profileText' style={{ fontFamily: 'Stylish'}}>Last Name</h2>
                 <div className="placeholder"></div>
-                <input value={this.state.lname} className="profileInput" onChange={ (e) => this.handleChange('lname', e.target.value)}/>
+                <input value={this.state.lname} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('lname', e.target.value)}/>
               </div>
 
               <div className="pInputRow">
                 <h2 className='profileText' style={{ fontFamily: 'Stylish'}}>Phone</h2>
                 <div className="placeholder"></div>
-                <input value={this.state.phone} className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
+                <input value={this.state.phone} id='pinput2' className="profileInput" onChange={ (e) => this.handleChange('phone', e.target.value)}/>
               </div>
               
             </div>

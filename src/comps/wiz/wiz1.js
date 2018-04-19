@@ -13,42 +13,45 @@ class Wiz1 extends Component {
   }
 
   render() {
-      console.log(this.props, "this.props wiz1")
     return (
       <div className="compBody">
-        <div className='placeholder'/>
-        <div className="inputs">
-        <h2 id='ball2' className='ball'>1</h2>
-        <div className="placeholder"/>
-        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz2'><h2 className='ball'>2</h2></Link>
-        <div className="placeholder"/>
-        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz3'><h2 className='ball'>3</h2></Link>
+
+        <div className='titlecon'>
+          <h1 id='mylistings3' className='searchTitle2'>Step 1</h1>
+        </div>
+
+        <div className='wizDisp'>
+
+          <div id='wizDisp2' className='inputsBody'>
+
+              <div className='inputs'>
+              <h2>Item</h2>
+              <input id='profileInput2' className='profileInput' value={this.props.name}onChange={(e) => this.props.updateName(e.target.value)}/>
+              </div>
+
+              <div className='inputs'>
+              <h2>Price</h2>
+              <h2 className="dolladollabill">$</h2><input id='profileInput2' className='profileInput' value={this.props.price} onChange={(e) => this.props.updatePrice(e.target.value)}/>
+              </div>
+
+          </div>
+          
+          <div className='inputsBody'>
+
+              <div id='inputsR' className='inputs'>
+              <h2 className='wizText'>Description</h2>
+              <div className='placeholder'/>
+              <textarea className='textArea' value={this.props.description} onChange={(e) => this.props.updateDes(e.target.value)}/>
+              </div>
+
+          </div>
 
         </div>
 
-        <div className='inputsBody'>
-
-            <div className='inputs'>
-            <h2>Item</h2>
-            <input className='profileInput' value={this.props.name}onChange={(e) => this.props.updateName(e.target.value)}/>
-            </div>
-
-            <div className='inputs'>
-            <h2>Price</h2>
-            <h2 className="dolladollabill">$</h2><input className='profileInput' value={this.props.price} onChange={(e) => this.props.updatePrice(e.target.value)}/>
-            </div>
-
-            <div id='inputsR' className='inputs'>
-            <h2>Description</h2>
-            <div className='placeholder'/>
-            <textarea className='textArea' value={this.props.description} onChange={(e) => this.props.updateDes(e.target.value)}/>
-            </div>
-
-        </div>
-
-
+        <div className='titlecon'>
         <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>next</h1></Link>
-       
+        </div>
+
       </div>
     );
   }

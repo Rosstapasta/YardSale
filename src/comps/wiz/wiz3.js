@@ -57,7 +57,6 @@ class Wiz3 extends Component {
     )
   }
 
-
   render() {
 
     console.log(this.state.files, "files off state")
@@ -69,27 +68,47 @@ class Wiz3 extends Component {
 
     return (
       <div className="compBody">
-        <div className='placeholder'/>
+
+        <div className='titlecon'>
+          <h1 id='mylistings3' className='searchTitle2'>Step 2</h1>
+        </div>
+
+        {/* <div className='placeholder'/>
         <div className="inputs">
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
         <div className="placeholder"/>
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz2'><h2 className='ball'>2</h2></Link>
         <div className="placeholder"/>
-        <h2 id='ball2' className='ball'>3</h2>
+        <h2 id='ball2' className='ball'>3</h2> */}
+
+        {/* </div> */}
+
+
+        <div className='step3Body' id=''>
+
+          <div className='imgContainer'>
+          <img className="imgPreview" src={preview} alt='preview'/>
+          </div>
+
+          <div className='step3BC'>
+
+            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false}>
+                  <div>upload photo</div>
+            </Dropzone>
+
+            <button className='fileb64' onClick={() => this.createListing() }><h2>Create Listing</h2></button>
+
+          </div>
+
 
         </div>
 
-        <div className='imgContainer'>
-        <img className="imgPreview" src={preview} alt='preview'/>
-        </div>
 
-        <Dropzone className="loginButton"onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false}>
-              <div>upload photo</div>
-        </Dropzone>
 
-        <button className='fileb64' onClick={() => this.createListing() }><h2>Create Listing</h2></button>
 
+        <div className='titlecon'>
         <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>
+        </div>
 
       </div>
     );

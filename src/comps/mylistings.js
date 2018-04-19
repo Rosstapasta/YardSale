@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../ducks/reducer';
 import axios from 'axios';
-// import pin from './media/pin2.png';
-// import paper from './media/paper.png';
-// import tape from './media/tape.png';
 import { Link } from 'react-router-dom';
 
 
@@ -88,7 +85,9 @@ class MyListings extends Component {
       <div>
       <div className="compBody">
 
+        <div id='titlecon2' className='sRow'>
         <h1 id='mylistings' className='searchTitle2'>My Listings</h1>
+        </div>
 
         <div className='listingsFlex'>
         {listings}

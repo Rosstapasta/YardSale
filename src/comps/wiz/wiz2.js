@@ -14,15 +14,19 @@ class Wiz2 extends Component {
   render() {
     return (
       <div className="compBody">
-        <div className='placeholder'/>
-        <div className="inputs">
+
+        <div className='titlecon'>
+          <h1 id='mylistings3' className='searchTitle2'>Step 2</h1>
+        </div>
+
+        {/* <div className="inputs">
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
         <div className="placeholder"/>
         <h2 id='ball2' className='ball'>2</h2>
         <div className="placeholder"/>
         <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz3'><h2 className='ball'>3</h2></Link>
 
-        </div>
+        </div> */}
 
 
         <div className='inputsBody'>
@@ -54,15 +58,15 @@ class Wiz2 extends Component {
 
         </div>
 
-
-        <div className='inputs'>
+        <div className='titlecon'>
+        <div id='backnext' className='inputs'>
             <Link to='/wiz1' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>
             <div className='placeholder'/>
             <div className='placeholder'/>
             <Link to='/wiz3' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>next</h1></Link>
         </div>
+        </div>
 
-        
       </div>
     );
   }

@@ -269,4 +269,19 @@ app.get('/getlikecount', (req, res, next) => {
 })
 
 
+app.put('/updatelisting', (req, res, next) => {
+        const { item, price, city, stateUSA, listId } = req.body;
+    app.get('db').update_listing( item, price, city, stateUSA, listId ).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
+
+app.get('/myfavorites', (req, res, next) => {
+
+    app.get('db').get_my_favorites(req.user.id).then( resp => {
+        res.status(200).send(resp)
+    })
+})
+
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )

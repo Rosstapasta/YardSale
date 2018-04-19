@@ -29,7 +29,7 @@ class Landing extends Component {
     var settings = {
       dots: true,
       infinite: true,
-      speed: 1500,
+      speed: 2000,
       slidesToShow: 3,
       slidesToScroll: 3,
       autoplay: true,
@@ -58,8 +58,8 @@ class Landing extends Component {
 
     var listing = this.state.listings.map( (post, i) => {
       return (
-        <div>
-        <div className='listCon' key ={i}>
+        <div key= {i}>
+        <div className='listCon'>
           <div id="rd2" className='rowDisp'>
           <h3 className='searchTitle'>#{i+=1}</h3>
           <h3 className="searchTitle">{post.item}</h3>
@@ -83,7 +83,11 @@ class Landing extends Component {
     return (
       <div className="compBody">
 
-        <h1 id='mylistings' className='searchTitle2'>Featured Items</h1>
+        <div className='placeholder'/>
+        <div className='titlecon'>
+        <h1 id='mylistings3' className='searchTitle2'>Featured Items</h1>
+
+        </div>
         
         <div className='mobileDisp'>
         {listing}
