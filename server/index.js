@@ -7,7 +7,6 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
 
-
 //newstuff below
 const multer = require('multer');
 const AWS = require('aws-sdk')
@@ -28,7 +27,8 @@ AWS.config.update(
     const upload = multer({
         storage: multer.memoryStorage(),
         // file size limitation in bytes
-        limits: { fileSize: 10242880 },
+        //limits: { fileSize: 52428800 },
+        
     });
     
     //newstuff above
@@ -185,9 +185,13 @@ app.post('/createlisting', (req, res, next) => {
 })
 
 app.get('/userlistings', (req, res, next) => {
+
+    if(req.user.id){
     app.get('db').get_user_listings(req.user.id).then(
         data => res.status(200).send(data)
-    )
+    )}else{
+        res.status(500).send('nope')
+    }
 })
 
 app.delete('/deletelisting', (req, res, next) => {
@@ -261,9 +265,13 @@ app.put('/updatep', (req, res, next) => {
 
 app.get('/getuser', (req, res, next) => {
 
-    app.get('db').find_session_user(req.user.id).then( resp => {
-        res.status(200).send(resp)
-    })
+    if(req.user.id){
+        app.get('db').find_session_user(req.user.id).then( resp => {
+            res.status(200).send(resp)
+        })
+    }else{
+        res.status(500).send('notfound')
+    }
 })
 
 app.get('/getlikecount', (req, res, next) => {

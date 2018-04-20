@@ -32,8 +32,7 @@ class Wiz3 extends Component {
 
   createListing(){
     var sendF = this.state.files[0];
-    // var type = this.state.files[0].type.substring(6);
-    var type = 'jpeg';
+    var type = this.state.files[0].type.substring(6);
 
 
     console.log(type, 'type in method sub string');
