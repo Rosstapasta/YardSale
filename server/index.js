@@ -28,7 +28,7 @@ AWS.config.update(
     const upload = multer({
         storage: multer.memoryStorage(),
         // file size limitation in bytes
-        limits: { fileSize: 52428800 },
+        limits: { fileSize: 10242880 },
     });
     
     //newstuff above
