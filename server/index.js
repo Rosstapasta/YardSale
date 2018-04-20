@@ -10,7 +10,7 @@ const Auth0Strategy = require('passport-auth0');
 
 //newstuff below
 const multer = require('multer');
-const AWS = require('AWS-SDK')
+const AWS = require('aws-sdk')
 
 const s3 = new AWS.S3();
 
