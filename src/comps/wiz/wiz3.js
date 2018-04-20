@@ -32,7 +32,8 @@ class Wiz3 extends Component {
 
   createListing(){
     var sendF = this.state.files[0];
-    var type = this.state.files[0].type.substring(6);
+    // var type = this.state.files[0].type.substring(6);
+    var type = 'jpeg';
 
 
     console.log(type, 'type in method sub string');
@@ -98,7 +99,7 @@ class Wiz3 extends Component {
 
           <div className='step3BC'>
 
-            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false} maxSize={52428800}>
+            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false} maxSize={ 524288000 }>
                   <div>upload photo</div>
             </Dropzone>
 
