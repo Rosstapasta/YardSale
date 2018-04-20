@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick-16";
+import './comps.css';
+
 
 class Landing extends Component {
   constructor(){
@@ -76,6 +78,8 @@ class Landing extends Component {
       )
     })
 
+    console.log(listing, 'listing')
+
     return (
       <div className="compBody">
 
@@ -90,9 +94,12 @@ class Landing extends Component {
         </div>
 
         <div className='deskDisp'>
-        <Slider {...settings} className='deskDisp2'>
+
+        
+        <Slider {...settings} className='carousel'>
           {listing}
         </Slider>
+        
         </div>
 
       </div>

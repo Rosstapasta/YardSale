@@ -1049,6 +1049,15 @@
     align-items: center;
 }
 
+.carousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+  padding: 0px;
+  width: 100%;
+}
+
 .lrArrows{
     position: relative;
     height: 20px;

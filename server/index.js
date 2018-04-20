@@ -5,6 +5,7 @@ const massive = require('massive');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const sharp = require('sharp');
 
 
 //newstuff below
@@ -24,14 +25,11 @@ AWS.config.update(
     
     // Multer config
     // memory storage keeps file data in a buffer
-    const upload = multer({
+const upload = multer({
         storage: multer.memoryStorage(),
         // file size limitation in bytes
-        //limits: { fileSize: 52428800 },
-        
+        limits: { fileSize: 52428800000 },
     });
-    
-    //newstuff above
     
     
 require('dotenv').config();
@@ -140,17 +138,23 @@ app.get('/logout2', (req, res, next) => {
 // })
 
 
-app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
-    console.log('hit router s3 in server')
-    // req.file is the 'theseNamesMustMatch' file
 
+app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
+    
+    // req.file is the 'theseNamesMustMatch' file
+    // console.log(req.file, "req.vile")
+    console.log(req.file.buffer, "reqz")
+    
+    // console.log(req.file.buffer, "req.vile2")
+    var newfile = sharp(req.file.buffer).resize(200, 200);
     const { key, type } = req.query;
-    console.log(req.query.key, "key from server");
+    console.log(newfile, "newfile")
+    
     s3.putObject({
         Bucket: 'yardsaleapp333',
         Key: `${key}.${type}`, 
         Body: req.file.buffer,
-        ACL: 'public-read', // your permisions  
+        ACL: 'public-read', 
       }, (err) => { 
         if (err) return res.status(400).send(err);
         res.send('File uploaded to S3');
