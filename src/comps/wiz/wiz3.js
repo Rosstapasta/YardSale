@@ -32,6 +32,11 @@ class Wiz3 extends Component {
 
   createListing(){
     var sendF = this.state.files[0];
+    var type = this.state.files[0].type.substring(6);
+
+
+    console.log(type, 'type in method sub string');
+
     var text = "";  
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -48,7 +53,7 @@ class Wiz3 extends Component {
     )
     );
 
-    upload.post(`/upload?key=${text}`)
+    upload.post(`/upload?key=${text}&type=${type}`)
       .attach('theseNamesMustMatch', sendF )
       .end((err, res) => {
         if (err) console.log(err);
@@ -64,6 +69,7 @@ class Wiz3 extends Component {
    
     if(this.state.files[0]){
       preview.push(this.state.files[0].preview)
+      console.log(this.state.files[0].type, "file type")
     }
 
     return (

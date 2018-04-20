@@ -126,6 +126,10 @@ app.get('/checkauth2', (req, res, next) => {
     }
 })
 
+app.get('/logout2', (req, res, next) => {
+    session.destroy()
+})
+
 
 // app.post('/sendpics', (req, res, next) => {
 //     console.log("hit sendpics in server")
@@ -140,11 +144,11 @@ app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
     console.log('hit router s3 in server')
     // req.file is the 'theseNamesMustMatch' file
 
-    const { key } = req.query;
+    const { key, type } = req.query;
     console.log(req.query.key, "key from server");
     s3.putObject({
         Bucket: 'yardsaleapp333',
-        Key: `${key}.jpeg`, 
+        Key: `${key}.${type}`, 
         Body: req.file.buffer,
         ACL: 'public-read', // your permisions  
       }, (err) => { 
@@ -285,5 +289,6 @@ app.get('/myfavorites', (req, res, next) => {
         res.status(200).send(resp)
     })
 })
+
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`) )

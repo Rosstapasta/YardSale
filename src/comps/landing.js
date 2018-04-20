@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Slider from "react-slick";
+import Slider from "react-slick-16";
 
 class Landing extends Component {
   constructor(){
