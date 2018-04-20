@@ -98,7 +98,7 @@ class Wiz3 extends Component {
 
           <div className='step3BC'>
 
-            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false}>
+            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false} maxSize={52428800}>
                   <div>upload photo</div>
             </Dropzone>
 
