@@ -21,6 +21,10 @@ class Search extends Component {
 
       cat: this.props.match.params.cat,
       refine: false,
+      anime: false,
+
+      minPrice: 0,
+      minPrice2: 0
 
       // filterS: false,
     }
@@ -32,18 +36,20 @@ class Search extends Component {
   }
 
   getAll(){
-    const { city2, stateUSA2, price2} = this.state;
+    const { city2, stateUSA2, price2, minPrice2} = this.state;
     var price22 = price2;
+    var price44 = minPrice2;
     if(price22 === 0){
       price22 += 999999999;
     }
-    axios.get(`/alllistings?price=${price22}&state=${stateUSA2}&city=${city2}`).then( res => this.setState({posts: res.data}))
+    axios.get(`/alllistings?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}`).then( res => this.setState({posts: res.data, anime: true}))
   }
 
   getCat(){
     const { cat } = this.props.match.params;
-    const { city2, stateUSA2, price2} = this.state;
+    const { city2, stateUSA2, price2, minPrice2} = this.state;
     var price22 = price2;
+    var price44 = minPrice2;
     if(price22 === 0){
       price22 += 999999999;
     }
@@ -52,7 +58,7 @@ class Search extends Component {
     if(cat === 'none'){
        this.getAll(); 
     }else{
-      axios.post(`/allfromcat?price=${price22}&state=${stateUSA2}&city=${city2}`, { cat } ).then( res => this.setState({posts: res.data}))
+      axios.post(`/allfromcat?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}`, { cat } ).then( res => this.setState({posts: res.data, anime: true}))
     }
   }
 
@@ -61,7 +67,7 @@ class Search extends Component {
     window.scrollTo(0, 0);
 
     if(cat !== 'none'){
-      this.getCat();
+      this.getCat(); 
     }else{
       this.getAll();
     }
@@ -192,6 +198,9 @@ class Search extends Component {
             <div className=''><h3 className='sparamsText'>Max Price</h3><input value={ this.state.price2 }className='searchInput2' onChange={(e) => this.handleInputs('price2', e.target.value)}/>
             </div>
 
+            <div className=''><h3 className='sparamsText'>Min Price</h3><input value={ this.state.minPrice2 }className='searchInput2' onChange={(e) => this.handleInputs('minPrice2', e.target.value)}/>
+            </div>
+
             <button id='search44' className='loginButton' onClick={() => this.searchFilter()}>Search</button>
 
         </div>
@@ -203,7 +212,7 @@ class Search extends Component {
         <div id='titlecon2' className='sRow'>
 
         
-        <h2 className='searchTitle2'>{catDisplay}</h2>
+        <h2 className={ this.state.anime ? 'searchTitle2 st22' : 'searchTitle2'}>{catDisplay}</h2>
         
 
         <button id='sbb' className='searchButton' onClick={() => this.setState({refine: true})}>Refine Search</button>
@@ -213,12 +222,12 @@ class Search extends Component {
           <div className="deleteConfirm">
 
             <div className='rowDisp'>
-              <h3 className='searchT'>City</h3>
+              <h3 id='searchT2' className='searchT'>City</h3>
               <input value={ this.state.city2 }className='searchInput' onChange={(e)=> this.handleInputs('city2', e.target.value)}/>
             </div>
 
             <div className='rowDisp'>
-              <h3 id='searchST' className='searchT'>State</h3>
+              <h3 id='' className='searchT'>State</h3>
               <select id='searchS' onChange={this.handleChange} value={this.state.stateUSA2} className='searchInput'>
                 <option value='Alabama'>Alabama</option>
                 <option value="Alaska">Alaska</option>
@@ -277,8 +286,13 @@ class Search extends Component {
               </select>
             </div>
 
-            <div className='rowDisp'><h3 className='searchT'>Price</h3><input value={ this.state.price2 }className='searchInput' onChange={(e) => this.handleInputs('price2', e.target.value)}/>
+            <div className='rowDisp'><h3 className='searchT'>Max Price</h3><input value={ this.state.price2 }className='searchInput' onChange={(e) => this.handleInputs('price2', e.target.value)}/>
               </div>
+
+            <div className='rowDisp'><h3 className='searchT'>Min Price</h3><input value={ this.state.minPrice2 }className='searchInput' onChange={(e) => this.handleInputs('minPrice2', e.target.value)}/>
+              </div>
+
+
 
             <div style={{ marginTop: '20px'  }}className='rowDisp'>
               <button id='searchB'className='lstButton' onClick={() => this.searchFilter()}>Search</button>

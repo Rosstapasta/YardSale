@@ -697,12 +697,12 @@
 }
 
 .sparamsText{
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: rgb(27, 27, 27);
     letter-spacing: 6px;
     position: relative;
     font-family: 'Stylish', sans-serif;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
 }
 
 .searchInput2{
@@ -735,6 +735,8 @@
     align-items: center;
     box-shadow: 0 10px 20px 0 rgba(112, 95, 212, 0.1), 3px 9px 6px 0px rgba(0,0,0,.3);
     border-radius: 5px;
+    opacity: 1;
+    transition: 2s;
 }
 
 .searchImg{
@@ -758,6 +760,12 @@
     letter-spacing: 6px;
     position: relative;
     font-family: 'Stylish', sans-serif;
+    opacity:0;
+    transition: 1s;
+}
+
+.st22{
+    opacity: 1
 }
 
 #rd2{
@@ -851,12 +859,17 @@
 
 .searchT{
     padding-left: 30px;
+    font-family: 'Stylish', sans-serif;
+}
+#searchT2{
+    margin-right: 40px;
 }
 
 #searchS{
     position: relative;
-    left: -27px;
-    width: auto;
+    left: -18px;
+    width:165px;
+    margin-left: 65px;
 }
 
 #searchST{
@@ -1053,9 +1066,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
-  padding: 0px;
-  width: 100%;
+    padding: 0px;
+    width: 100%;
+    margin: 35px;
 }
 
 .lrArrows{
@@ -1107,6 +1120,8 @@
     position: relative;
     bottom: 0px;
 }
+
+
 
 .editmobile{
     display: flex;

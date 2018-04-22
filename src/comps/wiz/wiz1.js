@@ -5,11 +5,21 @@ import { Link } from 'react-router-dom';
 
 
 class Wiz1 extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      anime: false
+    }
+  }
 
   componentWillMount(){
     window.scrollTo(0, 0);
     const { history } = this.props;
-    this.props.getUser(history)
+    this.props.getUser(history);
+    setTimeout( () => {
+      this.setState({ anime: true});
+    }, 20)
   }
 
   render() {
@@ -17,7 +27,7 @@ class Wiz1 extends Component {
       <div className="compBody">
 
         <div className='titlecon'>
-          <h1 id='mylistings3' className='searchTitle2'>Step 1</h1>
+          <h1 id='mylistings3' className={this.state.anime ? 'searchTitle2 st22' : 'searchTitle2'}>Step 1</h1>
         </div>
 
         <div className='wizDisp'>

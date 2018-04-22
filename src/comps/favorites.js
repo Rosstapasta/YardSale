@@ -7,14 +7,15 @@ export default class Favorites extends Component{
         super()
 
         this.state = {
-            listings: []
+            listings: [],
+            anime: false
         }
     }
 
     componentWillMount(){
         window.scrollTo(0, 0);
         axios.get('/myfavorites').then( res => {
-            this.setState({listings: res.data})
+            this.setState({listings: res.data, anime: true})
         })
     }
 
@@ -49,7 +50,7 @@ export default class Favorites extends Component{
             <div className='compBody'>
 
                 <div id='titlecon2' className='sRow'>
-                    <h1 id='mylistings' className='searchTitle2'>My Favorites</h1>
+                <h1 id='mylistings' className={ this.state.anime ? 'searchTitle2 st22': 'searchTitle2'}>My Favorites</h1>
                 </div>
 
                 <div id='lf2' className='listingsFlex'>

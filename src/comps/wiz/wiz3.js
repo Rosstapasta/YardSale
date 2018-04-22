@@ -14,7 +14,9 @@ class Wiz3 extends Component {
     this.state = {
       files: [],
       returnedF: [],
-      imageKey: ''
+      imageKey: '',
+      anime: false,
+      tooLarge: false
     }
 
     this.createListing = this.createListing.bind(this);
@@ -23,11 +25,20 @@ class Wiz3 extends Component {
   componentWillMount(){
     window.scrollTo(0, 0);
     const { history } = this.props;
-    this.props.getUser(history)
+    this.props.getUser(history);
+    setTimeout( () => {
+      this.setState({ anime: true});
+    }, 20)
   }
 
   onDrop(files){
-    this.setState({files})
+    this.setState({files: []},() => {
+      if(files[0]){
+        this.setState({files})
+      }else{
+        this.setState({tooLarge: true})
+      }
+    })
   }
 
   createListing(){
@@ -64,7 +75,7 @@ class Wiz3 extends Component {
 
   render() {
 
-    console.log(this.state.files, "files off state")
+    console.log(this.state.files, this.state.tooLarge, "files off state")
     var preview = []
    
     if(this.state.files[0]){
@@ -76,7 +87,7 @@ class Wiz3 extends Component {
       <div className="compBody">
 
         <div className='titlecon'>
-          <h1 id='mylistings3' className='searchTitle2'>Step 2</h1>
+          <h1 id='mylistings3' className={this.state.anime ? 'searchTitle2 st22' : 'searchTitle2'}>Step 3</h1>
         </div>
 
         {/* <div className='placeholder'/>
@@ -98,7 +109,7 @@ class Wiz3 extends Component {
 
           <div className='step3BC'>
 
-            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false} maxSize={ 5242880000 }>
+            <Dropzone className="loginButton" onDrop={this.onDrop = this.onDrop.bind(this)} multiple={false} maxSize={ 1000000 }>
                   <div>upload photo</div>
             </Dropzone>
 
@@ -115,6 +126,11 @@ class Wiz3 extends Component {
         <div className='titlecon'>
         <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>
         </div>
+
+        { this.state.tooLarge ? <div>{<div className='deleteConfirm'>
+          <h3>too large. Only images 1mb or smaller will upload. Sorry!</h3>
+          <button onClick={ () => this.setState({tooLarge: false})}>ok :(</button>
+        </div>}</div> : <div/> }
 
       </div>
     );

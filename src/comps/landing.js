@@ -11,14 +11,14 @@ class Landing extends Component {
 
     this.state = {
       listings: [],
+      anime: false
     }
   }
 
   componentWillMount(){
-
     window.scrollTo(0, 0);
     axios.get('/landing').then( res => {
-      this.setState({ listings: res.data })
+      this.setState({ listings: res.data, anime: true })
     })
   }
 
@@ -85,7 +85,7 @@ class Landing extends Component {
 
         <div className='placeholder'/>
         <div className='titlecon'>
-        <h1 id='mylistings3' className='searchTitle2'>Featured Items</h1>
+        <h1 id='mylistings3' className={ this.state.anime ?  'searchTitle2 st22' : 'searchTitle2' }>Featured Items</h1>
 
         </div>
         

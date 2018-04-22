@@ -206,8 +206,10 @@ app.delete('/deletelisting', (req, res, next) => {
 
 
 app.get('/alllistings', (req, res, next) => {
-    const { price, state, city} = req.query
-    app.get('db').get_all_listings(price , state, city).then( resp => {
+    const { price, state, city, minprice} = req.query
+    console.log(price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
+
+    app.get('db').get_all_listings(price , state, city, minprice).then( resp => {
         res.status(200).send(resp)
     })
 })
@@ -215,8 +217,9 @@ app.get('/alllistings', (req, res, next) => {
 
 app.post('/allfromcat', (req, res, next) => {
     const { cat } = req.body;
-    const { price, state, city} = req.query;
-    app.get('db').get_from_cat(cat, price, state, city).then( resp => {
+    const { price, state, city, minprice} = req.query;
+    console.log(cat, "CAT", price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
+    app.get('db').get_from_cat(cat, price, state, city, minprice).then( resp => {
         res.status(200).send(resp)
     })
 })

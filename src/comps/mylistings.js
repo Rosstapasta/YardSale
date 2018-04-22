@@ -12,7 +12,8 @@ class MyListings extends Component {
     this.state = {
       userL: [],
       delete: false,
-      deleteProp: ''
+      deleteProp: '',
+      anime: false
 
     }
 
@@ -22,7 +23,7 @@ class MyListings extends Component {
 
   userListings(){
     console.log('hit userListings')
-    axios.get('/userlistings').then( res => this.setState({userL: res.data, delete: false, deleteProp: ''},
+    axios.get('/userlistings').then( res => this.setState({userL: res.data, delete: false, deleteProp: '', anime: true},
     () => console.log(this.state.userL, "state from my listings")))
   }
 
@@ -86,7 +87,7 @@ class MyListings extends Component {
       <div className="compBody">
 
         <div id='titlecon2' className='sRow'>
-        <h1 id='mylistings' className='searchTitle2'>My Listings</h1>
+        <h1 id='mylistings' className={ this.state.anime ? 'searchTitle2 st22': 'searchTitle2'}>My Listings</h1>
         </div>
 
         <div className='listingsFlex'>
