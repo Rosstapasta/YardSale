@@ -54,22 +54,27 @@ class Navbar extends Component {
               {/* mobile */}
             <div id="topE2" >
 
-              <div className="buttonsMobile">
-              <Link to='/' style={{ textDecoration: 'none' }}><h2 className="GarageSale">Yard Sale</h2></Link>
-                
+              <div className='MNE'>
+                <div className="buttonsMobile">
+                <Link to='/' style={{ textDecoration: 'none' }}><h2 className="GarageSale">Yard Sale</h2></Link>
+                  
+                </div>
+
+                <div id="bm2" className="buttonsMobile"> 
+
+                  {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login1" className='loginButton'>Profile</div></Link>}</div> :
+                  <a style={{ textDecoration: 'none' }} href={ process.env.REACT_APP_LOGIN } ><div id="login1" className='loginButton'>login/register</div></a>}
+
+                  <div className="placeholder"></div>
+
+                  <Link to='/search/none' style={{ textDecoration: 'none' }}><div id="login1" className="searchButton" onClick={() => this.setState({dropMenu: false })}>Search</div></Link>
+
+                </div>
               </div>
 
-              <div id="bm2" className="buttonsMobile"> 
-
-                {this.state.user[0] ? <div>{<Link style={{ textDecoration: 'none' }} to='/profile'><div id="login1" className='loginButton'>Profile</div></Link>}</div> :
-                <a style={{ textDecoration: 'none' }} href={ process.env.REACT_APP_LOGIN } ><div id="login1" className='loginButton'>login/register</div></a>}
-
-                <div className="placeholder"></div>
-
-                <Link to='/search/none' style={{ textDecoration: 'none' }}><div id="login1" className="searchButton" onClick={() => this.setState({dropMenu: false })}>Search</div></Link>
-
-              </div>
-
+              {/* <div id='bm3' className='buttonsMobile'>
+                <img src={}/>
+              </div> */}
               <div id="bm3" className="buttonsMobile"> 
               <img onClick={() => this.setState({dropMenu: !this.state.dropMenu})} className="icon" src={ icon } alt='icon'/>
               </div>

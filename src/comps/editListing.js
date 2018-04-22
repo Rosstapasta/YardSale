@@ -12,7 +12,8 @@ export default class Edit extends Component{
             item: '',
             price: 0,
             city: '',
-            stateUSA: ''
+            stateUSA: '',
+            anime: false
         }
         this.updatelisting = this.updatelisting.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -22,7 +23,7 @@ export default class Edit extends Component{
         window.scrollTo(0, 0);
         const { listId } = this.props.match.params;
         axios.post('/editlisting', {listId} ).then(
-            res => this.setState({item: res.data[0].item, price: res.data[0].price, city: res.data[0].city, stateUSA: res.data[0].stateusa, image: res.data[0].img})
+            res => this.setState({item: res.data[0].item, price: res.data[0].price, city: res.data[0].city, stateUSA: res.data[0].stateusa, image: res.data[0].img, anime: true})
         )
     }
 
@@ -43,7 +44,7 @@ export default class Edit extends Component{
         <div className="compBody">
 
             <div className='titlecon'>
-                <h1 id='mylistings3' className='searchTitle2'>Edit Listing</h1>
+                <h1 id='mylistings3' className={ this.state.anime ? 'searchTitle2 st22' : 'searchTitle2'}>Edit Listing</h1>
             </div>
 
             <div className='editmobile'>

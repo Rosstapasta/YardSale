@@ -8,7 +8,7 @@
 /* navbar elements */
 
 .topLayer{
-   height: 158.44px;
+   height: 128.44px;
    position: fixed;
 }
 .navBody{
@@ -17,12 +17,12 @@
     align-items: center;
     justify-content: space-around;
     width: 100vw;
-    height: 150.44px;
+    height: 120.44px;
     box-shadow: 0 10px 20px 0 rgba(110, 110, 110, 0.1), 0 10px 6px 0 rgba(39, 39, 39, 0.3);
     background-image: rgb(253, 253, 255);
     margin-bottom: 25px;
     position: relative;
-    min-height: 150.44px;
+    min-height: 120.44px;
     z-index: 2;
     border-radius: 0px 0px 5px 5px;
     background-image: url(media/fence2.jpeg);
@@ -93,7 +93,7 @@
     font-size: 3.1rem;
     color: white;
     position: relative;
-    top: 17px;
+    top: 25px;
 }
 
 #gs{
@@ -134,7 +134,8 @@
 
 #bm3{
     position: relative;
-    bottom: 11px;
+    bottom: 29px;
+    height: 25px;
 }
 
 .placeholder{
@@ -144,8 +145,18 @@
 
 .icon{
     width: 70px;
-    position: relative;
+    position: fixed;
     padding: none;
+    object-fit: cover;
+    /* clip: rect(0px, 80px, 40px, 0px); */
+    /* background-position: center center;
+    background-size: cover;
+    overflow: hidden; */
+    
+}
+.MNE{
+    position: relative;
+    bottom: 20px;
 }
 
 .dropCats{
@@ -206,7 +217,7 @@
 
 .compBody{
     position: relative;
-    top: 150px;
+    top: 120px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
@@ -214,7 +225,7 @@
     /* background-color: #C6DBF0; */
     /* width: 100vw; */
     height: auto;
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 120px);
     width: 100%;
     /* padding-bottom: 90px; */
     
@@ -647,7 +658,7 @@
     position: fixed;
     border-radius: 10px;
     z-index: 3;
-    top: 55%;
+    top: 63%;
     left: 50%;
     margin-top: -150px;
     margin-left: -160px;
