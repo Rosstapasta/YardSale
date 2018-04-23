@@ -30,6 +30,7 @@ class Landing extends Component {
       speed: 2000,
       slidesToShow: 3,
       slidesToScroll: 3,
+      
       autoplay: true,
       responsive: [
         {
@@ -95,7 +96,6 @@ class Landing extends Component {
 
         <div className='deskDisp'>
 
-        
         <Slider {...settings} className='carousel'>
           {listing}
         </Slider>

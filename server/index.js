@@ -206,10 +206,10 @@ app.delete('/deletelisting', (req, res, next) => {
 
 
 app.get('/alllistings', (req, res, next) => {
-    const { price, state, city, minprice} = req.query
+    const { price, state, city, minprice, item} = req.query
     console.log(price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
 
-    app.get('db').get_all_listings(price , state, city, minprice).then( resp => {
+    app.get('db').get_all_listings(price , state, city, minprice, item).then( resp => {
         res.status(200).send(resp)
     })
 })
@@ -217,9 +217,9 @@ app.get('/alllistings', (req, res, next) => {
 
 app.post('/allfromcat', (req, res, next) => {
     const { cat } = req.body;
-    const { price, state, city, minprice} = req.query;
+    const { price, state, city, minprice, item} = req.query;
     console.log(cat, "CAT", price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
-    app.get('db').get_from_cat(cat, price, state, city, minprice).then( resp => {
+    app.get('db').get_from_cat(cat, price, state, city, minprice, item).then( resp => {
         res.status(200).send(resp)
     })
 })
@@ -238,9 +238,14 @@ app.post('/viewlisting', (req, res, next) => {
 })
 
 app.post('/userlike', (req, res, next) => {
-    app.get('db').likes(req.user.id, req.body.itemId).then( resp => {
-        res.status(200).send(resp)
-    })
+
+    if(req.user){
+        app.get('db').likes(req.user.id, req.body.itemId).then( resp => {
+            res.status(200).send(resp)
+        })
+    }else{
+        res.status(500).send('no user')
+    }
 })
 
 app.post('/newlike', (req, res, next) => {

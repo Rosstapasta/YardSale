@@ -13,7 +13,8 @@ class Profile extends Component {
       fname: '',
       lname: '',
       phone: 0,
-      fname2: '...loading'
+      fname2: '...loading',
+      updated: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.updateP = this.updateP.bind(this);
@@ -32,7 +33,7 @@ class Profile extends Component {
   updateP(){
     const { fname, lname, phone} = this.state;
     axios.put('/updatep', {fname, lname, phone}).then( res => {
-      this.setState({ fname2: fname })
+      this.setState({ fname2: fname, updated: true })
     })
   }
 
@@ -50,6 +51,7 @@ class Profile extends Component {
 
               <div className="placeholder"></div>
               <div className="placeholder"></div>
+              
               
               <div id='rd2223' className='rowDisp2'>
               <h2 className='profileText'>Welcome {this.state.fname2}</h2>
@@ -81,10 +83,12 @@ class Profile extends Component {
 
 
               <div className='placeholder'></div>
+              
         
               <div className='loginButton' onClick={() => this.updateP()}>Update Profile</div>
 
               <div className="placeholder"></div>
+              
 
             <Link style={{ textDecoration: 'none' }} to='/wiz1'><button className="listings">New Listing</button></Link>
 
@@ -105,14 +109,18 @@ class Profile extends Component {
 
           <div className='profile2'>
           <div className="placeholder"></div>
+          <div className="placeholder"></div>
+          
 
             <div id='rd222' className='rowDisp2'>
               <h2 id='pt22' className='profileText'>Welcome {this.state.fname2}</h2>
             </div>
           
              <div className="placeholder"></div>
+             <div className="placeholder"></div>
             <div className='rowDisp2'>
             <div className="placeholder"></div>
+            
             <Link style={{ textDecoration: 'none' }} to='/wiz1'><button className="listings">New Listing</button></Link>
 
               
@@ -154,6 +162,7 @@ class Profile extends Component {
 
             <div id='rd3' className='rowDisp2'>
               <div className='loginButton' onClick={() => this.updateP()}>Update Profile</div>
+              
 
               <a href={ process.env.REACT_APP_LOGOUT } style={{textDecoration: 'none', color: 'white'}}><button className="loginButton">Logout</button></a>
 
@@ -166,6 +175,10 @@ class Profile extends Component {
           </div>
 
 
+              { this.state.updated ? <div>{<div className='deleteConfirm'>
+                <h1>Update Succesful</h1>
+                <button id='searchB' className='lstButton' onClick={() => this.setState({updated: false})}>ok</button>
+              </div>}</div> : <div/> }
        
       </div>
     );

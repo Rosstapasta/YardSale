@@ -19,6 +19,7 @@ class Navbar extends Component {
     axios.get('/checkauth').then( res => {
       this.setState({user: [res.data] })
     })
+    
   }
 
   render(){
@@ -40,15 +41,25 @@ class Navbar extends Component {
             </div>
 
             <div id="topE1" className='categories'>
+              <div id='ph2' className='placeholder'/>
             <Link to='/search/Antiques' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Antiques</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Cars' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Cars</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Clothing' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Clothing</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Collectables' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Collectables</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Computers' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Computers</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Electronics' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Electronics</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Instruments' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Instruments</h3></Link>
+              <div className='whiteLine'/>
             <Link to='/search/Misc' style={{ textDecoration: 'none', color: 'white' }}><h3 className='catscats'>Other/Misc</h3></Link>
+              <div id='ph2' className='placeholder'/>
             </div>
+
 
 
               {/* mobile */}

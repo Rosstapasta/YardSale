@@ -24,7 +24,10 @@ class Search extends Component {
       anime: false,
 
       minPrice: 0,
-      minPrice2: 0
+      minPrice2: 0,
+
+      item: '',
+      item2: ''
 
       // filterS: false,
     }
@@ -36,18 +39,18 @@ class Search extends Component {
   }
 
   getAll(){
-    const { city2, stateUSA2, price2, minPrice2} = this.state;
+    const { city2, stateUSA2, price2, minPrice2, item2} = this.state;
     var price22 = price2;
     var price44 = minPrice2;
     if(price22 === 0){
       price22 += 999999999;
     }
-    axios.get(`/alllistings?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}`).then( res => this.setState({posts: res.data, anime: true}))
+    axios.get(`/alllistings?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}&item=${item2}`).then( res => this.setState({posts: res.data, anime: true}))
   }
 
   getCat(){
     const { cat } = this.props.match.params;
-    const { city2, stateUSA2, price2, minPrice2} = this.state;
+    const { city2, stateUSA2, price2, minPrice2, item2} = this.state;
     var price22 = price2;
     var price44 = minPrice2;
     if(price22 === 0){
@@ -58,7 +61,7 @@ class Search extends Component {
     if(cat === 'none'){
        this.getAll(); 
     }else{
-      axios.post(`/allfromcat?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}`, { cat } ).then( res => this.setState({posts: res.data, anime: true}))
+      axios.post(`/allfromcat?price=${price22}&state=${stateUSA2}&city=${city2}&minprice=${price44}&item=${item2}`, { cat } ).then( res => this.setState({posts: res.data, anime: true}))
     }
   }
 
@@ -129,12 +132,19 @@ class Search extends Component {
       <div className='searchRow'>
         <div className='rD2'>
         <div className='refineDesk'>
+
+          <div className='placeholder'/>
+
+          <div className=''>
+                <h3 className='sparamsText'>Item</h3>
+                <input value={ this.state.item2 }className='searchInput2' onChange={(e)=> this.handleInputs('item2', e.target.value)}/>
+          </div>
           
 
           <div className=''>
               <h3 className='sparamsText'>City</h3>
               <input value={ this.state.city2 }className='searchInput2' onChange={(e)=> this.handleInputs('city2', e.target.value)}/>
-            </div>
+          </div>
 
             <div className=''>
               <h3 id='' className='sparamsText'>State</h3>
@@ -221,6 +231,12 @@ class Search extends Component {
 
         { this.state.refine ? <div>{
           <div className="deleteConfirm">
+
+
+            <div className='rowDisp'>
+              <h3 id='searchT2' className='searchT'>Item</h3>
+              <input value={ this.state.item2 }className='searchInput' onChange={(e)=> this.handleInputs('item2', e.target.value)}/>
+            </div>
 
             <div className='rowDisp'>
               <h3 id='searchT2' className='searchT'>City</h3>

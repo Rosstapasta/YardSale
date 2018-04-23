@@ -8,7 +8,7 @@
 /* navbar elements */
 
 .topLayer{
-   height: 128.44px;
+   height: 118.44px;
    position: fixed;
 }
 .navBody{
@@ -17,12 +17,12 @@
     align-items: center;
     justify-content: space-around;
     width: 100vw;
-    height: 120.44px;
+    height: 110.44px;
     box-shadow: 0 10px 20px 0 rgba(110, 110, 110, 0.1), 0 10px 6px 0 rgba(39, 39, 39, 0.3);
     background-image: rgb(253, 253, 255);
     margin-bottom: 25px;
     position: relative;
-    min-height: 120.44px;
+    min-height: 110.44px;
     z-index: 2;
     border-radius: 0px 0px 5px 5px;
     background-image: url(media/fence2.jpeg);
@@ -69,6 +69,14 @@
     font-family: 'Stylish', sans-serif;
 }
 
+.whiteLine{
+    position: relative;
+    top: 24px;
+    height: 15px;
+    width:2px;
+    border-right: 2px solid white;
+}
+
 .loginButton{
     font-size: 20px;
     width: 125px;
@@ -93,7 +101,7 @@
     font-size: 3.1rem;
     color: white;
     position: relative;
-    top: 25px;
+    top: 33px;
 }
 
 #gs{
@@ -103,6 +111,8 @@
 
 #topE1{
     display: none;
+    position: relative;
+    bottom: 6px;
 }
 
 #login2{
@@ -134,13 +144,16 @@
 
 #bm3{
     position: relative;
-    bottom: 29px;
+    bottom: 33px;
     height: 25px;
 }
 
 .placeholder{
     width: 19px;
     height: 30px;
+}
+#ph2{
+    width: 2px
 }
 
 .icon{
@@ -156,7 +169,7 @@
 }
 .MNE{
     position: relative;
-    bottom: 20px;
+    bottom: 30px;
 }
 
 .dropCats{
@@ -193,9 +206,16 @@
     left: 19px;
 }
 
+#topE2{
+    height: 140px;
+    position: relative;
+    bottom: 35px;
+}
+
 @media(min-width: 700px){
     #topE2{
-        display: none
+        display: none;
+    
     }
     .GarageSale{
         right: 0%;
@@ -217,7 +237,7 @@
 
 .compBody{
     position: relative;
-    top: 120px;
+    top: 110px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
@@ -225,7 +245,7 @@
     /* background-color: #C6DBF0; */
     /* width: 100vw; */
     height: auto;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 110px);
     width: 100%;
     /* padding-bottom: 90px; */
     
@@ -238,7 +258,9 @@
 }
 
 .profileText{
-    /* margin-left: 9px; */
+    
+    position: relative;
+    font-family: 'Stylish', sans-serif;
 }
 
 .pInputRow{
@@ -273,6 +295,8 @@
     justify-content: center;
     align-items: center;
 }
+
+
 
 #pt22{
     position: relative;
@@ -657,7 +681,7 @@
     border: 9px solid rgb(37, 37, 37);
     position: fixed;
     border-radius: 10px;
-    z-index: 3;
+    z-index: 99 !important;
     top: 63%;
     left: 50%;
     margin-top: -150px;
@@ -698,7 +722,7 @@
    display: flex;
    flex-direction: column;
    /* justify-content: space-around; */
-   top: 150px;
+   top: 110px;
    padding-left: 15px;
    height: 100vh;
    width: 270px;
@@ -708,7 +732,7 @@
 }
 
 .sparamsText{
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: rgb(27, 27, 27);
     letter-spacing: 6px;
     position: relative;
@@ -731,6 +755,8 @@
 
 .searchTitle{
     margin-top: 40px; 
+    font-family: 'Stylish', sans-serif;
+    font-size: 1.4rem;
 }
 
 .listCon{
@@ -862,7 +888,8 @@
     color: white;
     font-size: 1.3rem;
     outline: none;
-    font-family: 'Permanent Marker', 'cursive';
+    font-family: 'Stylish', sans-serif;
+
     letter-spacing: 3px;
     width: 55%;
     margin-left: 15px;
@@ -1080,6 +1107,8 @@
     padding: 0px;
     width: 100%;
     margin: 35px;
+    position: relative;
+    top: 13px;
 }
 
 .lrArrows{

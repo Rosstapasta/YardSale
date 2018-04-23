@@ -15,6 +15,10 @@ import Favorites from './comps/favorites';
 import './App.css';
 
 class App extends Component {
+
+  componentWillMount(){
+    document.title = "Yard Sale!";
+  }
   render() {
     return (
       <div className='app4'>
