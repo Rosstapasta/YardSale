@@ -43,10 +43,10 @@ class Wiz3 extends Component {
 
   createListing(){
     var sendF = this.state.files[0];
-    var type = this.state.files[0].type.substring(6);
 
-
-    console.log(type, 'type in method sub string');
+    if(this.state.files[0]){
+      var type = this.state.files[0].type.substring(6);
+    }
 
     var text = "";  
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -64,23 +64,23 @@ class Wiz3 extends Component {
     )
     );
 
-    upload.post(`/upload?key=${text}&type=${type}`)
-      .attach('theseNamesMustMatch', sendF )
-      .end((err, res) => {
-        if (err) console.log(err);
-        alert('File uploaded!');
-      } 
-    )
+    if(this.state.files[0]){
+      upload.post(`/upload?key=${text}&type=${type}`)
+        .attach('theseNamesMustMatch', sendF )
+        .end((err, res) => {
+          if (err) console.log(err);
+          alert('File uploaded!');
+        } 
+      )
+    }
   }
 
   render() {
 
-    console.log(this.state.files, this.state.tooLarge, "files off state")
     var preview = []
    
     if(this.state.files[0]){
       preview.push(this.state.files[0].preview)
-      console.log(this.state.files[0].type, "file type")
     }
 
     return (
@@ -89,17 +89,6 @@ class Wiz3 extends Component {
         <div className='titlecon'>
           <h1 id='mylistings3' className={this.state.anime ? 'searchTitle2 st22' : 'searchTitle2'}>Step 3</h1>
         </div>
-
-        {/* <div className='placeholder'/>
-        <div className="inputs">
-        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz1'><h2 className='ball'>1</h2></Link>
-        <div className="placeholder"/>
-        <Link style={{textDecoration: 'none', color: 'black'}} to='/wiz2'><h2 className='ball'>2</h2></Link>
-        <div className="placeholder"/>
-        <h2 id='ball2' className='ball'>3</h2> */}
-
-        {/* </div> */}
-
 
         <div className='step3Body' id=''>
 
@@ -117,11 +106,7 @@ class Wiz3 extends Component {
 
           </div>
 
-
         </div>
-
-
-
 
         <div className='titlecon'>
         <Link to='/wiz2' style={{textDecoration: 'none', color: 'rgb(124, 211, 177)'}}><h1>back</h1></Link>

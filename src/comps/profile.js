@@ -43,7 +43,6 @@ class Profile extends Component {
 
   render() {
 
-    console.log(this.state.fname, this.state.lname)
     return (
       <div className="compBody">
 

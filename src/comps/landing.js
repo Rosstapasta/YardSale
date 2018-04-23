@@ -79,28 +79,32 @@ class Landing extends Component {
       )
     })
 
-    console.log(listing, 'listing')
+    // console.log(listing, 'listing')
 
     return (
       <div className="compBody">
 
-        <div className='placeholder'/>
-        <div className='titlecon'>
-        <h1 id='mylistings3' className={ this.state.anime ?  'searchTitle2 st22' : 'searchTitle2' }>Featured Items</h1>
-
-        </div>
         
-        <div className='mobileDisp'>
-        {listing}
-        </div>
 
-        <div className='deskDisp'>
+          
+          <div className='titlecon'>
+          <h1 id='mylistings3' className={ this.state.anime ?  'searchTitle2 st22' : 'searchTitle2' }>Featured Items</h1>
 
-        <Slider {...settings} className='carousel'>
+          </div>
+          
+          <div className='mobileDisp'>
           {listing}
-        </Slider>
+          </div>
+
+          <div className='deskDisp'>
+            
+          <Slider {...settings} className='carousel'>
+            {listing}
+          </Slider>
+          
+          </div>
+
         
-        </div>
 
       </div>
     );

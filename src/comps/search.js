@@ -56,7 +56,6 @@ class Search extends Component {
     if(price22 === 0){
       price22 += 999999999;
     }
-    console.log(cat, 'cat');
 
     if(cat === 'none'){
        this.getAll(); 
@@ -235,11 +234,13 @@ class Search extends Component {
 
             <div className='rowDisp'>
               <h3 id='searchT2' className='searchT'>Item</h3>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input value={ this.state.item2 }className='searchInput' onChange={(e)=> this.handleInputs('item2', e.target.value)}/>
             </div>
 
             <div className='rowDisp'>
               <h3 id='searchT2' className='searchT'>City</h3>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input value={ this.state.city2 }className='searchInput' onChange={(e)=> this.handleInputs('city2', e.target.value)}/>
             </div>
 

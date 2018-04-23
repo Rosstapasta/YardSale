@@ -13,7 +13,8 @@ export default class Edit extends Component{
             price: 0,
             city: '',
             stateUSA: '',
-            anime: false
+            anime: false,
+            updated: false
         }
         this.updatelisting = this.updatelisting.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -35,7 +36,7 @@ export default class Edit extends Component{
         const { listId } = this.props.match.params;
         const { item, price, city, stateUSA} = this.state;
         axios.put('/updatelisting', { item, price, city, stateUSA, listId } ).then( res => {
-            this.setState({ item: res.data[0].item, price: res.data[0].price, city: res.data[0].city, stateUSA: res.data[0].stateusa, image: res.data[0].img })
+            this.setState({ item: res.data[0].item, price: res.data[0].price, city: res.data[0].city, stateUSA: res.data[0].stateusa, image: res.data[0].img, updated: true })
         })
     }
     
@@ -104,6 +105,11 @@ export default class Edit extends Component{
                     </div>
 
             </div>
+
+            { this.state.updated ? <div>{<div className='deleteConfirm'>
+                <h1>Update Succesful</h1>
+                <button id='searchB' className='lstButton' onClick={() => this.setState({updated: false})}>ok</button>
+              </div>}</div> : <div/> }
 
         </div>
     )

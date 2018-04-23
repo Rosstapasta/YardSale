@@ -5,7 +5,6 @@ const massive = require('massive');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-const sharp = require('sharp');
 
 
 //newstuff below
@@ -28,7 +27,7 @@ AWS.config.update(
 const upload = multer({
         storage: multer.memoryStorage(),
         // file size limitation in bytes
-        limits: { fileSize: 52428800000 },
+        limits: { fileSize: 200000 },
     });
     
     
@@ -128,27 +127,9 @@ app.get('/logout2', (req, res, next) => {
     session.destroy()
 })
 
-
-// app.post('/sendpics', (req, res, next) => {
-//     console.log("hit sendpics in server")
-    
-//     app.get('db').create_listing(req.user.id, req.body.picsArr).then( data => 
-//         res.status(200).send(data)
-//     )
-// })
-
-
-
 app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
-    
     // req.file is the 'theseNamesMustMatch' file
-    // console.log(req.file, "req.vile")
-    console.log(req.file.buffer, "reqz")
-    
-    // console.log(req.file.buffer, "req.vile2")
-    var newfile = sharp(req.file.buffer).resize(200, 200);
     const { key, type } = req.query;
-    console.log(newfile, "newfile")
     
     s3.putObject({
         Bucket: 'yardsaleapp333',
@@ -162,14 +143,14 @@ app.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
 })
 
 app.post('/twiliotest', (req, res) => {
-    const {sender, message, phone} = req.body;
-    console.log(req.body)
+    const {sender, message, phone, senderName, email} = req.body;
 
     client.messages.create({
         to: `+1${phone}`,
         from: '+13853360756',
-        body: `You have a message from Yard Sale: ${message} 
-        contact: Brian at ${sender}` }, function(err, data){
+        body: `New message from Yard Sale!
+         ${message} 
+        contact: ${ senderName } at ${sender} ${email}` }, function(err, data){
             if(err){
                 console.log(err);
             }else{
@@ -207,8 +188,6 @@ app.delete('/deletelisting', (req, res, next) => {
 
 app.get('/alllistings', (req, res, next) => {
     const { price, state, city, minprice, item} = req.query
-    console.log(price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
-
     app.get('db').get_all_listings(price , state, city, minprice, item).then( resp => {
         res.status(200).send(resp)
     })
@@ -218,7 +197,6 @@ app.get('/alllistings', (req, res, next) => {
 app.post('/allfromcat', (req, res, next) => {
     const { cat } = req.body;
     const { price, state, city, minprice, item} = req.query;
-    console.log(cat, "CAT", price, 'PRICE', state, 'STATE', city, 'CITY', minprice, "MINPRICE", "allfrom cat")
     app.get('db').get_from_cat(cat, price, state, city, minprice, item).then( resp => {
         res.status(200).send(resp)
     })
@@ -287,7 +265,7 @@ app.get('/getuser', (req, res, next) => {
 })
 
 app.get('/getlikecount', (req, res, next) => {
-        console.log(req.query.itemId, "itemId from server like count")
+       
     app.get('db').likes_count(req.query.itemId).then( resp => {
         res.status(200).send(resp)
     })

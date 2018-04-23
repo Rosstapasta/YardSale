@@ -23,7 +23,6 @@ class Navbar extends Component {
   }
 
   render(){
-    console.log(this.state.user, "user info from navbar")
     return (
       <div className="topLayer">
           <div className="navBody">

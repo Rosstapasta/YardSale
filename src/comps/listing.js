@@ -12,6 +12,8 @@ class Item extends Component {
       item: {},
       contactB: false,
       sender: 0,
+      senderName: '',
+      email: '',
       message: '',
       like: [{item_id: 0}],
       user: [],
@@ -98,9 +100,9 @@ class Item extends Component {
 
 
   sendText(){
-    const { sender, message } = this.state;
+    const { sender, message, senderName, email } = this.state;
     const { phone } = this.state.item;
-    axios.post('/twiliotest', {sender, message, phone} ).then( res =>
+    axios.post('/twiliotest', {sender, message, phone, senderName, email} ).then( res =>
         this.setState({contactB: false})
     )
   }
@@ -111,7 +113,6 @@ class Item extends Component {
 
   render() {
 
-    console.log(this.state.likeCount, "likes")
     return (
       <div className="compBody">
 
@@ -185,8 +186,23 @@ class Item extends Component {
 
         { this.state.contactB ? <div>{
           <div id='dc2' className='deleteConfirm'>
-            <h3>your number</h3>
-            <input onChange={(e) => this.handleChange('sender', e.target.value)}/>
+
+            <div className='rowDisp'>
+              <h3 id='searchT2' className='searchT' >Name</h3>
+              &nbsp;&nbsp;&nbsp;
+              <input onChange={(e) => this.handleChange('senderName', e.target.value)} id='si22' className='searchInput'/>
+            </div>
+
+            <div className='rowDisp'>
+              <h3 id='searchT2' className='searchT' >Email{`   `}</h3>
+              &nbsp;&nbsp;&nbsp;
+              <input onChange={(e) => this.handleChange('email', e.target.value)} id='si22' className='searchInput'/>
+            </div>
+
+            <div className='rowDisp'>
+              <h3 id='searchT2' className='searchT' >Number</h3>
+              <input onChange={(e) => this.handleChange('sender', e.target.value)} id='si22' className='searchInput'/>
+            </div>
 
             <h3>Message</h3>
             <textarea className='lvta' onChange={(e) => this.handleChange('message', e.target.value)}/>

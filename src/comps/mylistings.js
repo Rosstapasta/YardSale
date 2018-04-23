@@ -22,7 +22,6 @@ class MyListings extends Component {
   }
 
   userListings(){
-    console.log('hit userListings')
     axios.get('/userlistings').then( res => this.setState({userL: res.data, delete: false, deleteProp: '', anime: true},
     () => console.log(this.state.userL, "state from my listings")))
   }
